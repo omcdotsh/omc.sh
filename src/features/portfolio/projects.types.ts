@@ -1,33 +1,36 @@
+import { Locale } from "@/locales/locales";
+
 export type ProjectJob = "design" | "development";
 
 export type Project = {
   title: string;
-  description: string;
+  description: Record<Locale, string>;
   imagePath: string;
   link: string;
   job: ProjectJob[];
 };
 
 export type ProjectId =
+  | "blockswan-app"
+  | "blockswan-botswan"
+  | "blockswan-protocol"
+  | "cosmic-exodus"
+  | "fyde-bullrun-simulator"
   | "fyde-liquid-vault"
   | "fyde-restaking"
-  | "fyde-bullrun-simulator"
-  | "uta-marketplace"
-  | "uta-packages"
-  | "blockswan-protocol"
-  | "rainbows-dao"
-  | "cosmic-exodus"
-  | "oscarmac-game-particles"
   | "oscarmac-coin-trainor"
-  | "blockswan-botswan"
-  | "oscarmac-logofolio2"
-  | "oscarmac-logofolio1"
-  | "oscarmac-hunt-or-get-hunted"
   | "oscarmac-esport-mascots"
+  | "oscarmac-game-particles"
+  | "oscarmac-hunt-or-get-hunted"
   | "oscarmac-jersey-design"
-  | "oscarmac-twitter-banners"
+  | "oscarmac-logofolio1"
+  | "oscarmac-logofolio2"
   | "oscarmac-oscardesign"
-  | "oscarmac-rasta-skull";
+  | "oscarmac-rasta-skull"
+  | "oscarmac-twitter-banners"
+  | "rainbows-dao"
+  | "uta-marketplace"
+  | "uta-packages";
 
 export type ProjectById = Record<ProjectId, Project>;
 

@@ -12,9 +12,13 @@ import { Confetti } from "@/components/ui/confetti";
 import { TypewriterText } from "@/components/ui/typewriter-text";
 import { Button } from "@/components/ui/button";
 import { MagicCard } from "@/components/ui/magic-card";
+import { useScopedI18n } from "@/locales/client";
+import Link from "next/link";
+import { SITE_CONFIG } from "@/lib/site-config";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useScopedI18n("hero-section");
 
   return (
     <motion.div
@@ -32,7 +36,7 @@ export function HeroSection() {
             animate={{ x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <CardTitle>gm friend</CardTitle>
+            <CardTitle>{t("title")}</CardTitle>
             <motion.div
               className="cursor-pointer relative"
               whileHover={{ scale: 1.1 }}
@@ -48,21 +52,23 @@ export function HeroSection() {
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             <CardDescription>
-              me, a{" "}
-              <span className="font-bold">
-                <TypewriterText
-                  className="text-secondary-foreground"
-                  words={[
-                    "fullstack",
-                    "web3",
-                    "blockchain",
-                    "frontend",
-                    "backend",
-                  ]}
-                  as="code"
-                />
-              </span>{" "}
-              engineer with a love for building cool stuff
+              {t("description", {
+                span: (
+                  <span className="font-bold">
+                    <TypewriterText
+                      className="text-secondary-foreground"
+                      words={[
+                        t("descriptionSpan.0"),
+                        t("descriptionSpan.1"),
+                        t("descriptionSpan.2"),
+                        t("descriptionSpan.3"),
+                        t("descriptionSpan.4"),
+                      ]}
+                      as="code"
+                    />
+                  </span>
+                ),
+              })}
             </CardDescription>
           </motion.div>
         </CardHeader>
@@ -73,12 +79,14 @@ export function HeroSection() {
             transition={{ delay: 0.6, duration: 0.5 }}
             className="text-sm"
           >
-            shipping the next generation of web3 dApps. from smart contracts to
-            user interfaces, i build the future of decentralized tech.
+            {t("subtext")}
           </motion.p>
         </CardContent>
         <CardFooter>
-          <Button variant={"default"}>{">"} get in touch</Button>
+          <Button variant={"default"} asChild>
+            <Link href={`mailto:${SITE_CONFIG.socials.mail}`}>{t("cta")}</Link>
+            {t("cta")}
+          </Button>
         </CardFooter>
       </MagicCard>
     </motion.div>

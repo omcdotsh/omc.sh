@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  ChefHat,
-  FlaskConical,
-  GalleryHorizontal,
-  Mail,
-  Pickaxe,
-} from "lucide-react";
+import { ChefHat, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -20,15 +14,21 @@ import { cn } from "@/lib/utils";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandTwitter,
+  IconBrandX,
   IconBrandBehance,
   IconMail,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCurrentLocale } from "@/locales/client";
 
 export const Sidebar = () => {
-  const pathname = usePathname();
+  const pathnameWithLocale = usePathname();
+  const locale = useCurrentLocale();
+
+  const pathname = pathnameWithLocale.replace(`/${locale}`, "");
+  const isHome = pathnameWithLocale === `/${locale}`;
+
   return (
     <motion.aside
       className="inset-y z-20 flex h-screen flex-col sticky top-0"
@@ -44,10 +44,15 @@ export const Sidebar = () => {
       >
         <Button
           variant="outline"
-          className="overflow-hidden p-0"
           size="icon"
           aria-label="Home"
           asChild
+          className={cn(
+            "overflow-hidden p-0",
+            isHome && "ring-1 ring-primary",
+            "transition-all duration-300",
+            isHome ? "scale-110" : "scale-100"
+          )}
         >
           <Link
             href="/"
@@ -58,7 +63,7 @@ export const Sidebar = () => {
               backgroundRepeat: "no-repeat",
               padding: "4px",
             }}
-          ></Link>
+          />
         </Button>
       </motion.div>
       <motion.nav
@@ -70,7 +75,7 @@ export const Sidebar = () => {
         <SidebarItem
           icon={FlaskConical}
           href="/xp"
-          label="experience"
+          label="XP"
           active={pathname === "/xp"}
         />
         <SidebarItem
@@ -116,26 +121,31 @@ export const Sidebar = () => {
           icon={IconBrandGithub}
           label="github"
           href={SITE_CONFIG.socials.github}
+          target="_blank"
         />
         <SidebarItem
           icon={IconBrandLinkedin}
           label="linkedin"
           href={SITE_CONFIG.socials.linkedin}
+          target="_blank"
         />
         <SidebarItem
-          icon={IconBrandTwitter}
+          icon={IconBrandX}
           label="twitter"
           href={SITE_CONFIG.socials.twitter}
+          target="_blank"
         />
         <SidebarItem
           icon={IconBrandBehance}
           label="behance"
           href={SITE_CONFIG.socials.behance}
+          target="_blank"
         />
         <SidebarItem
           icon={IconMail}
           label="email"
           href={`mailto:${SITE_CONFIG.socials.mail}`}
+          target="_blank"
         />
       </motion.nav>
     </motion.aside>
@@ -147,11 +157,13 @@ const SidebarItem = ({
   label,
   active = false,
   href,
+  target,
 }: {
   icon: React.ElementType;
   label: string;
   active?: boolean;
   href?: string;
+  target?: string;
 }) => (
   <TooltipProvider>
     <Tooltip>
@@ -168,7 +180,7 @@ const SidebarItem = ({
             disabled={active}
             aria-label={label}
           >
-            <Link href={href ?? ""}>
+            <Link href={href ?? ""} target={target}>
               <Icon className="size-5 cursor-pointer" />
             </Link>
           </Button>

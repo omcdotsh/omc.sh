@@ -6,6 +6,7 @@ import Image from "next/image";
 import { MagicCard } from "../../components/ui/magic-card";
 import { Project } from "./projects.types";
 import { ExternalLinkIcon } from "lucide-react";
+import { useCurrentLocale } from "@/locales/client";
 
 export const ProjectCardList = ({
   items,
@@ -15,6 +16,7 @@ export const ProjectCardList = ({
   className?: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const locale = useCurrentLocale();
 
   return (
     <div
@@ -71,7 +73,9 @@ export const ProjectCardList = ({
             </div>
             <div className="p-2">
               <CardTitle>{item.title}</CardTitle>
-              <CardDescription>{item.description}</CardDescription>
+              <CardDescription>
+                {item.description[locale as keyof typeof item.description]}
+              </CardDescription>
             </div>
           </Card>
         </Link>
