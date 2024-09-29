@@ -9,6 +9,8 @@ import "./globals.scss";
 const FONT = Inconsolata({
   subsets: ["latin"],
   weight: ["400", "700"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
