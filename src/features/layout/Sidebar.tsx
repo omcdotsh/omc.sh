@@ -174,7 +174,7 @@ const SidebarItem = ({
             variant={"ghost"}
             size="icon"
             className={cn([
-              `rounded-lg p-0 `,
+              `rounded-lg p-0`,
               active ? "border border-primary text-primary" : "",
             ])}
             disabled={active}
