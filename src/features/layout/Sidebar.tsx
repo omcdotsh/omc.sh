@@ -1,6 +1,12 @@
 "use client";
 
-import { GalleryHorizontal, Mail, Pickaxe } from "lucide-react";
+import {
+  ChefHat,
+  FlaskConical,
+  GalleryHorizontal,
+  Mail,
+  Pickaxe,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -12,10 +18,12 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+  IconBrandBehance,
+  IconMail,
+} from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -60,13 +68,13 @@ export const Sidebar = () => {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <SidebarItem
-          icon={Pickaxe}
+          icon={FlaskConical}
           href="/xp"
           label="experience"
           active={pathname === "/xp"}
         />
         <SidebarItem
-          icon={GalleryHorizontal}
+          icon={ChefHat}
           href="/portfolio"
           label="portfolio"
           active={pathname === "/portfolio"}
@@ -105,22 +113,27 @@ export const Sidebar = () => {
         transition={{ delay: 0.4, duration: 0.5 }}
       >
         <SidebarItem
-          icon={LinkedInLogoIcon}
-          label="linkedin"
-          href={SITE_CONFIG.socials.linkedin}
-        />
-        <SidebarItem
-          icon={GitHubLogoIcon}
+          icon={IconBrandGithub}
           label="github"
           href={SITE_CONFIG.socials.github}
         />
         <SidebarItem
-          icon={TwitterLogoIcon}
+          icon={IconBrandLinkedin}
+          label="linkedin"
+          href={SITE_CONFIG.socials.linkedin}
+        />
+        <SidebarItem
+          icon={IconBrandTwitter}
           label="twitter"
           href={SITE_CONFIG.socials.twitter}
         />
         <SidebarItem
-          icon={Mail}
+          icon={IconBrandBehance}
+          label="behance"
+          href={SITE_CONFIG.socials.behance}
+        />
+        <SidebarItem
+          icon={IconMail}
           label="email"
           href={`mailto:${SITE_CONFIG.socials.mail}`}
         />
