@@ -1,9 +1,8 @@
 export const SITE_CONFIG = {
-  name: "oscarmac",
+  name: "omc.sh",
   description:
     "innovative fullstack developer specialized in defi and blockchain applications",
-  productionUrl: "https://oscarmac.xyz",
-  domain: "oscarmac.xyz",
+  productionUrl: "https://omc.sh",
   appIcon: "/images/icon.png",
   brand: {
     primary: "#FF0000",
