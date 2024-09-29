@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "oscarmac",
   description:
-    "one more fullstack developer but a true enthousiast of defi & blockchain",
+    "innovative fullstack developer specialized in defi and blockchain applications",
   productionUrl: "https://oscarmac.xyz",
   domain: "oscarmac.xyz",
   appIcon: "/images/icon.png",
@@ -9,9 +9,9 @@ export const SITE_CONFIG = {
     primary: "#FF0000",
   },
   socials: {
-    linkedin: "https://www.linkedin.com/in/oscarmac/",
+    linkedin: "https://www.linkedin.com/in/oscarmacieira",
     github: "https://github.com/oscarmacieira",
-    twitter: "https://x.com/_scarmac",
+    twitter: "https://x.com/scarmac_",
     behance: "https://www.behance.net/OscarDzn",
     mail: "contact@oscarmac.xyz",
   },
