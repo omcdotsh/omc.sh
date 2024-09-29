@@ -84,8 +84,12 @@ export function HeroSection() {
         </CardContent>
         <CardFooter>
           <Button variant={"default"} asChild>
-            <Link href={`mailto:${SITE_CONFIG.socials.mail}`}>{t("cta")}</Link>
-            {t("cta")}
+            <Link
+              href={`mailto:${SITE_CONFIG.socials.mail}`}
+              className="cursor-pointer"
+            >
+              {t("cta")}
+            </Link>
           </Button>
         </CardFooter>
       </MagicCard>
