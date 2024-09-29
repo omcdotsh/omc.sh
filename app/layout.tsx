@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.description,
   openGraph: {
     images: `${getServerUrl()}/images/opengraph-image.png`,
+    title: `${SITE_CONFIG.name}`,
+    description: SITE_CONFIG.description,
+    url: SITE_CONFIG.productionUrl,
+    type: "website",
   },
 };
 
