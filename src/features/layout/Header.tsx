@@ -16,7 +16,7 @@ export const Header = () => {
 
   return (
     <motion.header
-      className="sticky top-0 z-10 flex h-[53px] w-full items-center justify-between px-4"
+      className="sticky top-0 z-10 flex h-[53px] w-full items-center justify-between px-4 bg-background/70 backdrop-blur-sm"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

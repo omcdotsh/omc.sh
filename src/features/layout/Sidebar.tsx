@@ -31,7 +31,7 @@ export const Sidebar = () => {
 
   return (
     <motion.aside
-      className="inset-y z-20 flex h-screen flex-col sticky top-0"
+      className="inset-y z-20 flex h-[100dvh] flex-col sticky top-0"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}

@@ -14,7 +14,7 @@ export const AppNavigation = ({ children }: { children: React.ReactNode }) => {
       <div className="absolute inset-0 z-[-1] bg-background/70 backdrop-blur-xs" />
       <div className="flex w-screen max-w-2xl">
         <Sidebar />
-        <div className="flex flex-col w-full h-screen">
+        <div className="flex flex-col w-full h-[100dvh]">
           <Header />
           <main className="z-0 flex-1 overflow-y-auto p-2 pr-4 w-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-primary/20">
             {children}
