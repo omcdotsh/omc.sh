@@ -10,8 +10,8 @@ export const SITE_CONFIG = {
   socials: {
     linkedin: "https://www.linkedin.com/in/oscarmacieira",
     github: "https://github.com/oscarmacieira",
-    twitter: "https://x.com/scarmac_",
+    twitter: "https://x.com/omc_sh",
     behance: "https://www.behance.net/OscarDzn",
-    mail: "contact@oscarmac.xyz",
+    mail: "contact@omc.sh",
   },
 };
