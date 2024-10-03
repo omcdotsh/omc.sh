@@ -6,13 +6,14 @@ import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MagicCard } from "@/components/ui/magic-card";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
-import { Xp } from "./xp.types";
+import { XpItem } from "./xp.types";
+import { AnimatedBadgeList } from "@/components/ui/animated-badge-list";
 
 export function XpTimelineCard({
   experiences,
   title,
 }: {
-  experiences: Xp[];
+  experiences: readonly XpItem[];
   title?: string;
 }) {
   return (
@@ -66,7 +67,7 @@ function ExperienceItem({
   index,
   last,
 }: {
-  item: Xp;
+  item: XpItem;
   index: number;
   last: boolean;
 }) {
@@ -87,6 +88,9 @@ function ExperienceItem({
         <h3 className="text-md font-semibold">{item.title}</h3>
         <p className="text-sm text-muted-foreground">@{item.company}</p>
         <p className="mt-2 text-sm">{item.description}</p>
+        {item.skills ? (
+          <AnimatedBadgeList items={item.skills} badgeVariant={"outline"} />
+        ) : null}
       </div>
     </motion.div>
   );

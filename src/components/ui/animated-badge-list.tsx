@@ -1,11 +1,15 @@
 import { motion } from "framer-motion";
-import { Badge } from "./badge";
+import { Badge, BadgeProps } from "./badge";
 
 export type AnimatedBadgeListProps = {
-  items: string[];
+  items: string[] | readonly string[];
+  badgeVariant?: BadgeProps["variant"];
 };
 
-export const AnimatedBadgeList = ({ items }: AnimatedBadgeListProps) => {
+export const AnimatedBadgeList = ({
+  items,
+  badgeVariant,
+}: AnimatedBadgeListProps) => {
   return (
     <div className="my-4">
       <div className="flex flex-wrap gap-2">
@@ -17,7 +21,7 @@ export const AnimatedBadgeList = ({ items }: AnimatedBadgeListProps) => {
             transition={{ delay: index * 0.05 }}
           >
             <Badge
-              variant="secondary"
+              variant={badgeVariant || "secondary"}
               className="text-xs"
               key={item}
               title={item}

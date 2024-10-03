@@ -1,17 +1,17 @@
 export default {
   "hero-section": {
     title: "bonjour ami",
-    description: "moi, un ingénieur {span} passionné par l'innovation",
+    description: "moi, un ingénieur {span} qui adore créer des trucs cool",
     descriptionSpan: ["fullstack", "web3", "blockchain", "frontend", "backend"],
     subtext:
-      "des smart contracts, à l'indexation jusqu'aux interfaces utilisateur, je peux concrétiser vos idées innovantes",
+      "je construis la prochaine génération d'applications web3. des smart contracts aux interfaces utilisateurs, je concrétise vos idées innovantes",
     cta: "> contactez-moi",
   },
   "stats-section": {
     title: "quelques chiffres",
     items: [
       {
-        label: "années d'expérience a essayé de constuire des trucs cools",
+        label: "années d'expérience à livrer des solutions innovantes",
         value: "5",
         suffix: "+",
         ctaText: "voir mon parcours",
@@ -25,7 +25,7 @@ export default {
         ctaLink: "/portfolio",
       },
       {
-        label: "rage quit de l'université car franchement, c'est chiant",
+        label: `"rage-quit" de l'université car franchement, ennuyeux`,
         value: "2",
         ctaText: "voir ça",
         ctaLink: "/xp?tab=academic",
@@ -41,99 +41,244 @@ export default {
   },
   "xp-section": {
     tabs: ["professionnel", "personnel", "académique"],
+    title: "expérience professionnelle",
     "items-pro": [
       {
         title: "ingénieur fullstack",
         company: "fyde labs",
         date: "2024 - présent",
         description:
-          "développement de dapps. travail sur des smart contracts, du staking liquide, des simulations de jeux et des systèmes d'authentification. rôle fullstack du frontend à la blockchain et au backend.",
+          "responsable du développement, maintien et amélioration des dapps du protocole. intégration de smart contracts complexes et création d'un jeu de simulation de trading.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "graphql",
+          "postgresql",
+          "aws",
+          "wagmi",
+          "viem",
+          "privy",
+          "rainbowkit",
+          "telegram api",
+          "réseaux evm",
+          "web3 authentification",
+        ],
       },
       {
         title: "développeur fullstack",
         company: "blockswan",
         date: "2024",
         description:
-          "développement d'une application permettant aux freelances de gérer les factures avec les clients. construction du SAAS en utilisant next.js, prisma, postgres et tailwind.",
+          "développement d'une application pour les freelances permettant la gestion des factures avec les clients. création d'une plateforme SaaS avec optimisation SEO.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "postgresql",
+          "optimisation seo",
+          "intégration stripe",
+          "jwt authentification",
+          "dashboard analytics",
+          "gestion des factures",
+        ],
       },
       {
         title: "ingénieur fullstack",
         company: "pimster",
         date: "2023 - 2024",
         description:
-          "responsabilité du développement de fonctionnalités du concept au déploiement. gestion des migrations postgresql et des processus backend graphql. conception d'interfaces frontend réactives pour des applications grand public et entreprise en utilisant next.js.",
+          "gestion du développement des fonctionnalités, de la conception au déploiement. développement d'interfaces réactives et backend scalable pour les applications grand public et entreprises.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "nest.js",
+          "strapi",
+          "postgresql",
+          "graphql",
+          "aws",
+          "migration de base de données",
+          "design réactif",
+          "développement d'applications d'entreprise",
+        ],
       },
       {
-        title: "couteau suisse web3",
+        title: "web3 couteau-suisse",
         company: "cosmic exodus",
         date: "2022",
         description:
-          "travail sur l'ingénierie de la tokenomics du jeu et la planification financière. rôle clé dans la sensibilisation des partenaires et les relations avec les investisseurs pendant la série pré-amorçage. développement de la dApp en utilisant moralis, mongodb, ethers.js et react.",
+          "ingénierie de la tokenomics et planification financière pour le jeu. rôle clé dans la gestion des partenariats et des relations investisseurs lors de la levée de fonds pré-seed.",
+        skills: [
+          "tokenomics",
+          "planification financière",
+          "relations investisseurs",
+          "développement de dapp",
+          "react",
+          "mongodb",
+          "express",
+          "typescript",
+          "moralis",
+          "wagmi",
+        ],
       },
       {
         title: "développeur web3",
         company: "rainbows dao",
         date: "2022",
         description:
-          "déploiement et mise à jour des contrats intelligents evm avec hardhat. création d'une interface dApp en utilisant react et material ui. intégration des interactions de contrat en utilisant ethers.js et construction du backend avec moralis et mongodb.",
+          "déploiement et mise à jour de smart contracts. création de l'interface et du backend d'application décentralisée.",
+        skills: [
+          "développement de smart contract",
+          "développement de dapp",
+          "infrastructure DAO",
+          "react",
+          "mongodb",
+          "express",
+          "typescript",
+          "moralis",
+          "wagmi",
+        ],
       },
       {
-        title: "testeur de logiciels",
+        title: "testeur logiciel",
         company: "cajoo",
         date: "déc 2021 - jan 2022",
         description:
-          "manipulation de grands ensembles de données, création de documentation, préparation de tests logiciels et rédaction de rapports de défauts. utilisation de compétences en microsoft excel, analyse de données, haut niveau de précision et raisonnement logique.",
+          "manipulation de grands ensembles de données et préparation de tests logiciels.",
+        skills: [
+          "test logiciel",
+          "manipulation de données",
+          "documentation",
+          "rapport de défauts",
+        ],
       },
       {
         title: "opérateur de contenu espagne",
         company: "manomano",
-        date: "nov. 2021 - déc. 2021",
+        date: "nov 2021 - déc 2021",
         description:
-          "rôle freelance axé sur le maintien de la cohérence et de la conformité de la marque. responsabilités incluant l'extraction de données, le nettoyage et l'assurance de l'efficacité, de la productivité et de la qualité. utilisation de compétences en microsoft excel, saisie de données et langue espagnole.",
+          "maintien de la cohérence de la marque dans les fiches produits. vérification de l'exactitude et de la pertinence des descriptions des produit pour le marché espagnol.",
+        skills: [
+          "extraction de données",
+          "normalisation de données",
+          "gestion de contenu",
+        ],
       },
       {
         title: "responsable de plateforme",
         company: "henri wartner group",
-        date: "mai 2020 - juil. 2020",
+        date: "mai 2020 - juil 2020",
         description:
-          "soutien d'un nouveau développement commercial (fabrication et distribution de masques certifiés en b2b/b2c) pendant la crise covid : création et design de l'identité de marque / étude de prix et mise en place complète de la plateforme de vente en ligne sur wordpress.",
+          "soutien au développement de nouvelles affaires pendant la crise du COVID. création de l'identité de marque et mise en place d'une plateforme de vente en ligne pour la fabrication et la distribution de masques.",
+        skills: [
+          "développement commercial",
+          "création d'identité de marque",
+          "analyse de marché",
+          "mise en place de plateforme e-commerce",
+          "étude de prix",
+        ],
       },
       {
         title: "assistant chef de projet",
-        company: "tbwa\\groupe",
+        company: "tbwa groupe",
         date: "mai 2018 - juil 2018",
         description:
-          "développement de benchmarks concurrentiels, réalisation d'extraction et d'analyse de données, structuration de hiérarchies de marques et génération de pistes médias. utilisation de compétences en benchmarking, nettoyage de données, analyse de données et génération de leads.",
+          "réalisation d'études de concurrence et structuration des hiérarchies de marques.",
+        skills: [
+          "analyse concurrentielle",
+          "analyse de données",
+          "gestion de marque",
+          "planification média",
+          "gestion de projet",
+          "génération de leads média",
+        ],
       },
       {
         title: "assistant graphiste",
         company: "jésus et gabriel",
         date: "juin 2015",
         description:
-          "première approche concrète du monde du travail dans une agence de marketing et de communication. utilisation de compétences en adobe illustrator, design graphique et adobe photoshop.",
+          "première expérience professionnelle dans une agence de marketing et communication.",
+        skills: [
+          "design graphique",
+          "marketing",
+          "communication",
+          "adobe creative suite",
+        ],
       },
     ],
     "items-perso": [
       {
+        title: "ingénieur fullstack",
+        company: "ultra tech alliance",
+        date: "2023",
+        description:
+          "création d'ultra-utilities, un ensemble d'outils et packages pour le développement blockchain. création d'une place de marché où ces outils sont utilisés.",
+        skills: [
+          "typescript",
+          "react",
+          "lerna",
+          "ultra wallet",
+          "C++",
+          "eosjs",
+          "packages npm",
+          "développement blockchain",
+          "développement de marketplace",
+        ],
+      },
+      {
         title: "fondateur",
         company: "blockswan",
-        date: "avr 2021 - aujourd'hui",
+        date: "2021 - présent",
         description:
-          "développement d'une place de marché de services numériques décentralisée et non-dépositaire. responsabilités incluant : développement d'API NodeJs Express et de cluster IPFS, ingénierie et implémentation de contrats intelligents solidity, conception UI/UX, intégration front-end react, et marketing.",
+          "développement d'une place de marché numérique décentralisée et non-custodiale.",
+        skills: [
+          "nodejs",
+          "express",
+          "ipfs",
+          "solidity",
+          "hardhat",
+          "foundry",
+          "ponder",
+          "react",
+          "design ui/ux",
+          "marketing",
+          "architecture de plateforme",
+          "implémentation de smart contract",
+        ],
       },
       {
         title: "designer freelance",
         company: "oscar design",
-        date: "2014 - aujourd'hui",
+        date: "2014 - présent",
         description:
-          "vente de créations graphiques (logos, bannières, webdesign, maillots) et services de développement d'applications web. focalisation sur le marketing dans les marchés de l'e-sport et de la crypto via les réseaux sociaux.",
+          "création et vente de designs graphiques et services de développement web.",
+        skills: [
+          "design graphique",
+          "développement web",
+          "création de logo",
+          "conception de bannière",
+          "conception de maillot",
+          "marketing sur les réseaux sociaux",
+          "e-sports",
+          "crypto",
+        ],
       },
       {
         title: "créateur de marque",
         company: "savaged",
         date: "2014",
         description:
-          "conception, production, promotion et distribution locale d'une petite collection de vêtements.",
+          "conceptualisation, production et distribution locale d'une petite collection de vêtements.",
+        skills: [
+          "développement de marque",
+          "conception de vêtements",
+          "gestion de production",
+          "distribution locale",
+          "marketing",
+          "promotion",
+        ],
       },
     ],
     "items-academic": [
@@ -142,59 +287,94 @@ export default {
         company: "42",
         date: "sept 2022",
         description:
-          "sciences informatiques et technologies de l'information en apprentissage pair à pair",
+          "études en informatique et technologie de l'information dans un système d'apprentissage par les pairs.",
+        skills: [
+          "apprentissage par les pairs",
+          "sciences informatiques",
+          "technologies de l'information",
+          "programmation",
+          "algorithmes",
+          "développement logiciel",
+        ],
       },
       {
-        title: "économie et gestion d'entreprise",
+        title: "économie & gestion d'entreprise",
         company: "escp",
         date: "sept 2020 - juil 2021",
         description:
-          "première année de programme de bachelor sur le campus de Londres.",
+          "première année du programme de bachelor sur le campus de Londres.",
+        skills: [
+          "économie",
+          "gestion d'entreprise",
+          "affaires internationales",
+          "finance",
+          "marketing",
+        ],
       },
       {
-        title: "économie et gestion d'entreprise",
+        title: "économie & gestion d'entreprise",
         company: "paris dauphine | uc3m",
         date: "sept 2017 - juil 2019",
         description:
-          "programme de bachelor de 2 ans à Madrid avec des cours en espagnol et en anglais. admission sélective de 40 étudiants.",
+          "deux premières années de la licence à Madrid avec des cours en espagnol et en anglais. admission sélective de 40 étudiants.",
+        skills: [
+          "économie",
+          "gestion d'entreprise",
+          "espagnol",
+          "anglais",
+          "études internationales",
+        ],
       },
       {
         title: "cours d'été",
         company: "université de georgetown",
         date: "juil - sept 2017",
         description:
-          "cours de psychologie / sociologie, droit du sport et sciences informatiques en immersion totale dans une université américaine du top 14 à Washington D.C.",
+          "cours en psychologie / sociologie, droit du sport et sciences informatiques en immersion dans une université du top 14 aux États-Unis à Washington D.C.",
+        skills: [
+          "psychologie",
+          "sociologie",
+          "droit du sport",
+          "sciences informatiques",
+          "immersion académique",
+        ],
       },
       {
-        title: "école primaire et secondaire",
+        title: "école et lycée",
         company: "saint-jean de passy & assomption de lubeck",
         date: "sept 2007 - août 2017",
-        description: "enseignement primaire et secondaire à Paris.",
+        description: "éducation primaire et secondaire à Paris.",
+        skills: [
+          "système éducatif français",
+          "études scientifiques",
+          "pensée critique",
+          "gestion du temps",
+        ],
       },
     ],
-    "items-achievment": [
+    "items-achievement": [
       {
         title: "top 3 hackathon polygon buidlit 2022",
         company: "polygon",
         date: "septembre 2021",
-        description: "réalisation en programmation d'applications web3",
+        description: "réussite en programmation de dapp web3",
       },
       {
-        title: "certificat de programmation d'applications web3",
+        title: "certificat de programmation de dapp web3",
         company: "moralis",
         date: "mai 2022",
         description: "certification en développement web3",
       },
       {
-        title: "baccalauréat scientifique français",
+        title: "baccalauréat scientifique",
         date: "2017",
-        description: "obtenu avec mention (option mathématiques)",
+        description: "obtenu avec mention (option maths)",
       },
       {
         title: "ielts (7.0)",
         date: "2017",
         description:
-          "écoute (6.5) - lecture (8.0) écriture (5.5) - expression orale (7.0)",
+          "écoute (6.5) - lecture (8.0) - écriture (5.5) - expression orale (7.0)",
       },
       {
         title: "certificat google analytics",
@@ -211,7 +391,7 @@ export default {
         title: "anglais courant",
       },
       {
-        title: "espagnol avancé",
+        title: "espagnol maîtrisé",
       },
       {
         title: "autonome",
@@ -232,11 +412,14 @@ export default {
         title: "karaté",
       },
       {
-        title: "jeux vidéo",
+        title: "gaming",
       },
       {
-        title: "crypto-monnaies",
+        title: "crypto",
       },
     ],
+  },
+  "portfolio-section": {
+    tabs: ["développeur", "designer"],
   },
 } as const;

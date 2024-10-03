@@ -1,73 +1,65 @@
 import { useCurrentLocale } from "@/locales/client";
-import { AboutItem, Achievement, Xp } from "./xp.types";
 import { useMemo } from "react";
 import { Locale, LOCALES } from "@/locales/locales";
 import en from "@/locales/translations/en";
 import fr from "@/locales/translations/fr";
+import { Achievement, XpPro, XpPerso, XpAcademic, AboutItem } from "./xp.types";
 
-const getXpPro = (locale: Locale) => {
+type XpSection =
+  | "items-pro"
+  | "items-perso"
+  | "items-academic"
+  | "items-achievement"
+  | "items-about";
+
+type XpType<T extends XpSection> = T extends "items-pro"
+  ? readonly XpPro[]
+  : T extends "items-perso"
+  ? readonly XpPerso[]
+  : T extends "items-academic"
+  ? readonly XpAcademic[]
+  : T extends "items-achievement"
+  ? readonly Achievement[]
+  : T extends "items-about"
+  ? readonly AboutItem[]
+  : never;
+
+const getXpData = <T extends XpSection>(
+  locale: Locale,
+  section: T
+): XpType<T> => {
   switch (locale) {
     case LOCALES.FR:
-      return [...fr["xp-section"]["items-pro"]];
-    case LOCALES.EN:
-    default:
-      return [...en["xp-section"]["items-pro"]];
-  }
-};
+      return fr["xp-section"][section] as unknown as XpType<T>;
 
-const getXpPerso = (locale: Locale) => {
-  switch (locale) {
-    case LOCALES.FR:
-      return [...fr["xp-section"]["items-perso"]];
     case LOCALES.EN:
+      return en["xp-section"][section] as unknown as XpType<T>;
     default:
-      return [...en["xp-section"]["items-perso"]];
-  }
-};
-
-const getXpAcademic = (locale: Locale) => {
-  switch (locale) {
-    case LOCALES.FR:
-      return [...fr["xp-section"]["items-academic"]];
-    case LOCALES.EN:
-    default:
-      return [...en["xp-section"]["items-academic"]];
-  }
-};
-
-const getAchievements = (locale: Locale) => {
-  switch (locale) {
-    case LOCALES.FR:
-      return [...fr["xp-section"]["items-achievment"]];
-    case LOCALES.EN:
-    default:
-      return [...en["xp-section"]["items-achievment"]];
-  }
-};
-
-const getAboutItems = (locale: Locale) => {
-  switch (locale) {
-    case LOCALES.FR:
-      return [...fr["xp-section"]["items-about"]];
-    case LOCALES.EN:
-    default:
-      return [...en["xp-section"]["items-about"]];
+      return en["xp-section"][section] as unknown as XpType<T>;
   }
 };
 
 export function useXp() {
   const locale = useCurrentLocale();
 
-  const xpPro: Xp[] = useMemo(() => getXpPro(locale), [locale]);
-  const xpPerso: Xp[] = useMemo(() => getXpPerso(locale), [locale]);
-  const xpAcademic: Xp[] = useMemo(() => getXpAcademic(locale), [locale]);
-  const achievements: Achievement[] = useMemo(
-    () => getAchievements(locale),
+  const xpPro = useMemo<readonly XpPro[]>(
+    () => getXpData(locale, "items-pro"),
     [locale]
   );
-
-  const aboutItems: AboutItem[] = useMemo(
-    () => getAboutItems(locale),
+  const xpPerso = useMemo<readonly XpPerso[]>(
+    () => getXpData(locale, "items-perso"),
+    [locale]
+  );
+  const xpAcademic = useMemo<readonly XpAcademic[]>(
+    () => getXpData(locale, "items-academic"),
+    [locale]
+  );
+  const achievements = useMemo<readonly Achievement[]>(
+    () => getXpData(locale, "items-achievement"),
+    [locale]
+  );
+  const aboutItems = useMemo<readonly AboutItem[]>(
+    () => getXpData(locale, "items-about"),
     [locale]
   );
 
