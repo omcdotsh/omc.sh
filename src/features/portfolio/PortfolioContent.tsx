@@ -6,8 +6,11 @@ import { PROJECT_BY_JOB } from "@/features/portfolio/projects.constants";
 import { ProjectJob } from "@/features/portfolio/projects.types";
 import { useQueryState } from "nuqs";
 import { motion, AnimatePresence } from "framer-motion";
+import { useScopedI18n } from "@/locales/client";
 
-const DEFAULT_JOB: ProjectJob = "development";
+type PortfolioTab = "development" | "design";
+
+const DEFAULT_JOB: PortfolioTab = "development";
 
 const parseJob = (value: string): ProjectJob => {
   if (["development", "design"].includes(value)) {
@@ -17,6 +20,7 @@ const parseJob = (value: string): ProjectJob => {
 };
 
 export const PortfolioContent = () => {
+  const t = useScopedI18n("portfolio-section");
   const [as, setAs] = useQueryState<ProjectJob>("as", {
     defaultValue: DEFAULT_JOB,
     parse: parseJob,
@@ -40,7 +44,7 @@ export const PortfolioContent = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              developer
+              {t("tabs.0")}
             </motion.span>
           </TabsTrigger>
           <TabsTrigger value="design">
@@ -48,7 +52,7 @@ export const PortfolioContent = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              designer
+              {t("tabs.1")}
             </motion.span>
           </TabsTrigger>
         </TabsList>
