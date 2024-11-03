@@ -1,7 +1,16 @@
+import {
+  DEFAULT_THEME_COLOR,
+  DEFAULT_THEME_MODE,
+  ThemeColor,
+  ThemeMode,
+} from "@/features/theme/useAppTheme";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { ParticlesOptions } from "@tsparticles/engine";
 
-export const PARTICLES_CONFIG: Partial<ParticlesOptions> = {
+export const PARTICLES_CONFIG = (
+  color: ThemeColor = DEFAULT_THEME_COLOR,
+  mode: ThemeMode = DEFAULT_THEME_MODE
+): Partial<ParticlesOptions> => ({
   fullScreen: { enable: false },
   particles: {
     number: {
@@ -12,13 +21,13 @@ export const PARTICLES_CONFIG: Partial<ParticlesOptions> = {
       },
     },
     color: {
-      value: SITE_CONFIG.brand.primary,
+      value: SITE_CONFIG.brand.primary(color),
     },
     shape: {
       type: "square",
       stroke: {
         width: 1,
-        color: SITE_CONFIG.brand.primary,
+        color: SITE_CONFIG.brand.primary(color),
       },
       image: {
         src: "img/github.svg",
@@ -27,7 +36,7 @@ export const PARTICLES_CONFIG: Partial<ParticlesOptions> = {
       },
     },
     opacity: {
-      value: 0.030422178395625899,
+      value: mode === "dark" ? 0.030422178395625899 : 0.05,
       random: true,
       anim: {
         enable: false,
@@ -50,7 +59,7 @@ export const PARTICLES_CONFIG: Partial<ParticlesOptions> = {
       enable: true,
       distance: 160.3412060865523,
       color: {
-        value: SITE_CONFIG.brand.primary,
+        value: SITE_CONFIG.brand.primary(color),
       },
       width: 1,
     },
@@ -111,4 +120,4 @@ export const PARTICLES_CONFIG: Partial<ParticlesOptions> = {
     },
   },
   retina_detect: true,
-};
+});

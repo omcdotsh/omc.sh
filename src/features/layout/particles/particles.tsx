@@ -5,6 +5,7 @@ import {
 } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import { PARTICLES_CONFIG } from "./particles.config";
+import { useAppTheme } from "@/features/theme/useAppTheme";
 
 type ParticlesProps = {
   className?: string;
@@ -12,6 +13,7 @@ type ParticlesProps = {
 
 export const Particles = ({ className }: ParticlesProps) => {
   const [init, setInit] = useState(false);
+  const { color } = useAppTheme();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -23,5 +25,7 @@ export const Particles = ({ className }: ParticlesProps) => {
 
   if (!init) return null;
 
-  return <TSParticles className={className} options={PARTICLES_CONFIG} />;
+  return (
+    <TSParticles className={className} options={PARTICLES_CONFIG(color)} />
+  );
 };
