@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { useScopedI18n } from "@/locales/client";
+import { useAppTheme } from "../theme/useAppTheme";
 
 interface StatItemProps {
   label: string;
@@ -36,10 +37,11 @@ function StatItem({
   ctaLink,
   isExternal,
 }: StatItemProps) {
+  const { color } = useAppTheme();
   return (
     <MagicCard
       className="relative flex flex-col h-full"
-      gradientColor={SITE_CONFIG.brand.primary + "20"}
+      gradientColor={SITE_CONFIG.brand.primary(color ?? "red") + "20"}
     >
       <CardHeader className="flex-grow">
         <CardTitle className="text-3xl font-bold">
@@ -80,7 +82,7 @@ export function StatsSection() {
 
   return (
     <motion.div
-      className="w-full"
+      className="w-full pb-4"
       ref={containerRef}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

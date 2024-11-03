@@ -85,7 +85,8 @@ export function HeroSection() {
         <CardFooter>
           <Button variant={"default"} asChild>
             <Link
-              href={`mailto:${SITE_CONFIG.socials.mail}`}
+              target="_blank"
+              href={SITE_CONFIG.socials.calendar}
               className="cursor-pointer"
             >
               {t("cta")}
