@@ -21,17 +21,18 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCurrentLocale } from "@/locales/client";
+import { THEME_COLOR_TO_FILTER_MAP, useAppTheme } from "../theme/useAppTheme";
 
 export const Sidebar = () => {
   const pathnameWithLocale = usePathname();
   const locale = useCurrentLocale();
-
+  const { color } = useAppTheme();
   const pathname = pathnameWithLocale.replace(`/${locale}`, "");
   const isHome = pathnameWithLocale === `/${locale}`;
 
   return (
     <motion.aside
-      className="inset-y z-20 flex h-[100dvh] flex-col sticky top-0"
+      className="inset-y z-20 flex h-[100dvh] flex-col sticky top-0 overflow-hidden"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
@@ -48,8 +49,7 @@ export const Sidebar = () => {
           aria-label="Home"
           asChild
           className={cn(
-            "overflow-hidden p-0",
-            isHome && "ring-1 ring-primary",
+            "overflow-hidden p-0 rounded-lg",
             "transition-all duration-300",
             isHome ? "scale-110" : "scale-100"
           )}
@@ -58,6 +58,7 @@ export const Sidebar = () => {
             href="/"
             style={{
               backgroundImage: `url(${SITE_CONFIG.appIcon})`,
+              filter: color ? THEME_COLOR_TO_FILTER_MAP[color] : "red",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -85,11 +86,12 @@ export const Sidebar = () => {
           active={pathname === "/portfolio"}
         />
       </motion.nav>
-      <div className="flex flex-col items-center justify-center flex-grow">
+
+      <div className="flex flex-col items-center justify-center flex-grow mx-auto">
         <motion.div
-          className="w-[1px] bg-primary"
+          className="w-[1px] bg-primary mx-auto ml-1"
           initial={{ height: 0 }}
-          animate={{ height: "100px" }}
+          animate={{ height: "100%" }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
         />
 
@@ -105,9 +107,9 @@ export const Sidebar = () => {
         </div>
 
         <motion.div
-          className="w-[1px] bg-primary"
+          className="w-[1px] bg-primary mx-auto ml-1"
           initial={{ height: 0 }}
-          animate={{ height: "100px" }}
+          animate={{ height: "100%" }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
         />
       </div>
