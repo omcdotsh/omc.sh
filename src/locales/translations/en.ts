@@ -40,7 +40,7 @@ export default {
     ],
   },
   "xp-section": {
-    tabs: ["professional", "personal", "academic"],
+    tabs: ["pro", "perso", "academic"],
     title: "professional experience",
     "items-pro": [
       {
@@ -420,5 +420,31 @@ export default {
   },
   "portfolio-section": {
     tabs: ["as developer", "as designer"],
+  },
+  footer: {
+    calendar: "> book a call",
+    linkedin: "boss me on linkedin",
+    x: "retweet me on X",
+    github: "fork me on github",
+    behance: "admire me on behance",
+    email: "email me",
+  },
+  "cta-section": {
+    title: "revolutionize your web3 projects",
+    "1": {
+      title: "blockchain integration",
+      description:
+        "seamlessly connect your dapps with multiple blockchain networks.",
+    },
+    "2": {
+      title: "smart contract development",
+      description:
+        "create secure and efficient smart contracts for your decentralized applications.",
+    },
+    "3": {
+      title: "defi solutions",
+      description:
+        "build robust decentralized finance applications with cutting-edge technologies.",
+    },
   },
 } as const;

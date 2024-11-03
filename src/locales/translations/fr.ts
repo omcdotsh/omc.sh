@@ -40,7 +40,7 @@ export default {
     ],
   },
   "xp-section": {
-    tabs: ["professionnel", "personnel", "académique"],
+    tabs: ["pro", "perso", "académique"],
     title: "expérience professionnelle",
     "items-pro": [
       {
@@ -421,5 +421,31 @@ export default {
   },
   "portfolio-section": {
     tabs: ["développeur", "designer"],
+  },
+  footer: {
+    calendar: "contactez-moi >",
+    linkedin: "stalkez mon linkedin",
+    x: "retweetez-moi sur X",
+    github: "forkez mon github",
+    behance: "admirez mon behance",
+    email: "envoyez-moi un mail",
+  },
+  "cta-section": {
+    title: "révolutionnez vos projets web3",
+    "1": {
+      title: "intégration blockchain",
+      description:
+        "connectez facilement vos dapps avec de multiples réseaux blockchain.",
+    },
+    "2": {
+      title: "développement de smart contracts",
+      description:
+        "créez des smart contracts sécurisés et efficaces pour vos applications décentralisées.",
+    },
+    "3": {
+      title: "solutions defi",
+      description:
+        "construisez des applications de finance décentralisée robustes avec des technologies de pointe.",
+    },
   },
 } as const;
