@@ -10,26 +10,19 @@
 
 @layer base {
   :root {
-    --background: 0 0% 90%;
-    --foreground: 240 10% 3.9%;
+    --radius: 0.3rem;
+  }
+
+  .theme-base {
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 346.8 77.2% 49.8%;
-    --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 346.8 77.2% 49.8%;
-    --radius: 0.3rem;
+
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -37,14 +30,27 @@
     --chart-5: 27 87% 67%;
   }
 
-  .dark {
+  .light-theme {
+    @extend .theme-base;
+    --background: 0 0% 90%;
+    --foreground: 240 10% 3.9%;
+    --card-foreground: 240 10% 3.9%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive-foreground: 0 0% 98%;
+  }
+
+  .dark-theme {
+    @extend .theme-base;
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
     --card: 24 9.8% 10%;
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
-    --primary: 346.8 77.2% 49.8%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -56,12 +62,108 @@
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 346.8 77.2% 49.8%;
+
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+
+  .light-red,
+  .dark-red {
+    --primary: 346.8 77.2% 49.8%;
+    --ring: 346.8 77.2% 49.8%;
+  }
+
+  .light-orange,
+  .dark-orange {
+    --primary: 24 95% 53%;
+    --ring: 24 95% 53%;
+  }
+
+  .light-yellow,
+  .dark-yellow {
+    --primary: 45 93% 47%;
+    --ring: 45 93% 47%;
+  }
+
+  .light-green,
+  .dark-green {
+    --primary: 142 76% 46%;
+    --ring: 142 76% 46%;
+  }
+
+  .light-cyan,
+  .dark-cyan {
+    --primary: 180 100% 37%;
+    --ring: 180 100% 37%;
+  }
+
+  .light-blue,
+  .dark-blue {
+    --primary: 217.2 91.2% 59.8%;
+    --ring: 217.2 91.2% 59.8%;
+  }
+
+  .light-indigo,
+  .dark-indigo {
+    --primary: 238 76% 50%;
+    --ring: 238 76% 50%;
+  }
+
+  .light-violet,
+  .dark-violet {
+    --primary: 270 100% 50%;
+    --ring: 270 100% 50%;
+  }
+
+  .light-pink,
+  .dark-pink {
+    --primary: 330 76% 50%;
+    --ring: 330 76% 50%;
+  }
+
+  .light-red,
+  .light-orange,
+  .light-yellow,
+  .light-green,
+  .light-cyan,
+  .light-blue,
+  .light-indigo,
+  .light-violet,
+  .light-pink {
+    @extend .light-theme;
+  }
+
+  .dark-red,
+  .dark-orange,
+  .dark-yellow,
+  .dark-green,
+  .dark-cyan,
+  .dark-blue,
+  .dark-indigo,
+  .dark-violet,
+  .dark-pink {
+    @extend .dark-theme;
+  }
+
+  .light-black {
+    @extend .light-theme;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --ring: 0 0% 0%;
+  }
+
+  .dark-white {
+    @extend .dark-theme;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 95%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 240 10% 3.9%;
+    --ring: 0 0% 100%;
   }
 }
 
