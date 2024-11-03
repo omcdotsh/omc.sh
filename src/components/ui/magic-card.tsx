@@ -5,6 +5,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { useAppTheme } from "@/features/theme/useAppTheme";
 
 export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientSize?: number;
@@ -16,9 +17,12 @@ export function MagicCard({
   children,
   className,
   gradientSize = 200,
-  gradientColor = SITE_CONFIG.brand.primary + "20",
+  gradientColor,
   gradientOpacity = 0.8,
 }: MagicCardProps) {
+  const { color } = useAppTheme();
+  const _gradientColor =
+    gradientColor ?? SITE_CONFIG.brand.primary(color ?? "red") + "20";
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
 
@@ -55,7 +59,7 @@ export function MagicCard({
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
-            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
+            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${_gradientColor}, transparent 100%)
           `,
           opacity: gradientOpacity,
         }}
