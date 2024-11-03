@@ -99,7 +99,7 @@ function ExperienceItem({
         <p className="text-xs text-primary">{item.date}</p>
         <h3 className="text-md font-semibold">{item.title}</h3>
         <p className="text-sm text-muted-foreground">@{item.company}</p>
-        <p className="mt-2 text-sm">{item.description}</p>
+        <p className="mt-2 text-sm whitespace-pre-line">{item.description}</p>
         {item.skills ? (
           <AnimatedBadgeList items={item.skills} badgeVariant={"outline"} />
         ) : null}
