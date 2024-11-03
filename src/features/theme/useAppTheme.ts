@@ -64,6 +64,31 @@ export const THEME_COLOR_TO_FILTER_MAP: Record<ThemeColor, string> = {
   black: "grayscale(100%)",
 };
 
+export const THEMES = [
+  "light-red",
+  "dark-red",
+  "light-orange",
+  "dark-orange",
+  "light-yellow",
+  "dark-yellow",
+  "light-green",
+  "dark-green",
+  "light-cyan",
+  "dark-cyan",
+  "light-blue",
+  "dark-blue",
+  "light-indigo",
+  "dark-indigo",
+  "light-violet",
+  "dark-violet",
+  "light-pink",
+  "dark-pink",
+  "light-black",
+  "dark-white",
+];
+
+export const DEFAULT_THEME = "dark-red";
+
 export function useAppTheme() {
   const { theme, setTheme } = useTheme();
 
