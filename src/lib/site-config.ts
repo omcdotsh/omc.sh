@@ -1,3 +1,5 @@
+import { HEXA_COLOR_MAP, ThemeColor } from "@/features/theme/useAppTheme";
+
 export const SITE_CONFIG = {
   name: "omc.sh",
   description:
@@ -5,9 +7,12 @@ export const SITE_CONFIG = {
   productionUrl: "https://omc.sh",
   appIcon: "/images/icon.png",
   brand: {
-    primary: "#FF0000",
+    primary: (color: ThemeColor) => {
+      return HEXA_COLOR_MAP[color];
+    },
   },
   socials: {
+    calendar: "https://cal.com/omc.sh",
     linkedin: "https://www.linkedin.com/in/oscarmacieira",
     github: "https://github.com/oscarmacieira",
     twitter: "https://x.com/omc_sh",
