@@ -2,19 +2,22 @@
 
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useAppTheme } from "./useAppTheme";
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { mode, setThemeMode } = useAppTheme();
 
   return (
     <Button
       variant="ghost"
       size="sm"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setThemeMode(mode === "light" ? "dark" : "light")}
     >
-      <Sun className="h-6 w-[1.3rem] dark:hidden" />
-      <Moon className="hidden size-5 dark:block" />
+      {mode === "light" ? (
+        <Sun className="size-5" />
+      ) : (
+        <Moon className="size-5" />
+      )}
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
