@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { Providers } from "./providers";
 import { Inconsolata } from "next/font/google";
-import { getServerUrl } from "@/lib/server-url";
 import "./confetti-theme.scss";
 import "./globals.scss";
 
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
   title: SITE_CONFIG.name,
   description: SITE_CONFIG.description,
   openGraph: {
-    images: `${getServerUrl()}/images/opengraph-image.png`,
+    images: `${SITE_CONFIG.productionUrl}/images/opengraph-image.png`,
     title: `${SITE_CONFIG.name}`,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.productionUrl,

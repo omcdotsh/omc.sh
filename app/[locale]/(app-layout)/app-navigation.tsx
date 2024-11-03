@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/features/layout/Footer";
 import { Header } from "@/features/layout/Header";
 import { Particles } from "@/features/layout/particles/particles";
 import { Sidebar } from "@/features/layout/Sidebar";
@@ -12,12 +13,13 @@ export const AppNavigation = ({ children }: { children: React.ReactNode }) => {
     <div className="grid h-screen w-screen justify-center">
       <Particles className="absolute inset-0 z-[-1] h-full w-full" />
       <div className="absolute inset-0 z-[-1] bg-background/70 backdrop-blur-xs" />
-      <div className="flex w-screen max-w-2xl">
+      <div className="flex w-screen max-w-2xl  overflow-hidden">
         <Sidebar />
         <div className="flex flex-col w-full h-[100dvh]">
           <Header />
-          <main className="z-0 flex-1 overflow-y-auto p-2 pr-4 w-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-primary/20">
+          <main className="z-0 flex-1 overflow-y-auto p-2 w-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-primary/20">
             {children}
+            <Footer />
           </main>
         </div>
       </div>
