@@ -1,17 +1,12 @@
 "use client";
 
-import { ThemeProvider } from "next-themes";
+import { AnimatedCursor } from "@/components/ui/animated-cursor";
+import { ThemeProvider } from "@/features/theme/ThemeProvider";
 import { PropsWithChildren } from "react";
-
-import dynamic from "next/dynamic";
-
-const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
 
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+    <ThemeProvider>
       <AnimatedCursor />
       {children}
     </ThemeProvider>
