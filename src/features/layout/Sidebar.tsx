@@ -21,12 +21,10 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCurrentLocale } from "@/locales/client";
-import { THEME_COLOR_TO_FILTER_MAP, useAppTheme } from "../theme/useAppTheme";
 
 export const Sidebar = () => {
   const pathnameWithLocale = usePathname();
   const locale = useCurrentLocale();
-  const { color } = useAppTheme();
   const pathname = pathnameWithLocale.replace(`/${locale}`, "");
   const isHome = pathnameWithLocale === `/${locale}`;
 
@@ -58,7 +56,6 @@ export const Sidebar = () => {
             href="/"
             style={{
               backgroundImage: `url(${SITE_CONFIG.appIcon})`,
-              filter: color ? THEME_COLOR_TO_FILTER_MAP[color] : "red",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",

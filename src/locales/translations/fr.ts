@@ -44,9 +44,53 @@ export default {
     title: "expérience professionnelle",
     "items-pro": [
       {
+        title: "lead développeur",
+        company: "neutrl",
+        date: "juil 2025 - présent",
+        description:
+          "• direction du design et de la livraison du tableau de bord DeFi, du site de documentation, de l'application et de la page d'accueil pour le protocole Neutrl, garantissant une expérience utilisateur cohérente et intuitive.\n\n• développement d'un SDK de classe mondiale pour une interaction fluide avec le protocole Neutrl, prenant en charge plusieurs langues et environnements.\n\n• mise en place de pipelines CI, tests automatisés et surveillance des performances, garantissant la fiabilité et l'évolutivité de la plateforme.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "graphql",
+          "wagmi",
+          "viem",
+          "ponder",
+          "sentio",
+          "solidity",
+          "sdks",
+        ],
+      },
+      {
+        title: "ingénieur logiciel",
+        company: "morpho labs",
+        date: "nov 2024 - juil 2025",
+        description:
+          "• conception et déploiement d’une fonctionnalité de migration inter-protocoles via Morpho Bundler v3, permettant aux utilisateurs d’importer leurs positions depuis Aave v2/v3 et Compound v2/v3 vers Morpho.\n\n• développement d’une fonctionnalité de refinancement permettant aux utilisateurs de déplacer en toute transparence leurs positions d’emprunt entre les marchés Morpho pour optimiser les taux et l’utilisation des garanties.\n\n• mise en place des SDK de parrainage, prise en charge complète de la simulation et d’une couche hybride SSR/chargement de données on-chain pour garantir des interfaces utilisateur précises et en temps réel dans toute l’application.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "graphql",
+          "wagmi",
+          "viem",
+          "blue-sdk",
+          "blue-sdk-viem",
+          "blue-sdk-wagmi",
+          "simulation-sdk",
+          "bundler-sdk-viem",
+          "ssr",
+          "fuul",
+          "sdk",
+          "emotion",
+          "reown",
+        ],
+      },
+      {
         title: "ingénieur fullstack",
         company: "fyde labs",
-        date: "2024 - présent",
+        date: "janv 2024 - nov 2024",
         description:
           "• direction du développement d'applications utilisateur interagissant avec des smart contracts, réduisant la taille des bundles de plus de 40% et améliorant le cls de 25%, optimisant la stabilité visuelle et l'expérience utilisateur.\n\n• maintenance, optimisation et ajout de nouvelles fonctionnalités liées au protocole utilisant wagmi et viem, supportant avec succès des pics de trafic dépassant 1000% pendant l'événement de génération de tokens (tge) et gérant plus de 50 000 visites mensuelles.\n\n• création d'un jeu de simulation de trading bullrun, aboutissant à plus de 300 comptes blockchain créés via un système d'authentification web3 fluide et cumulant plus de 5 000 parties lancées.",
         skills: [
@@ -430,5 +474,10 @@ export default {
       description:
         "construisez des applications de finance décentralisée robustes avec des technologies de pointe.",
     },
+  },
+  "work-with-section": {
+    title: "j'ai travaillé avec",
+    subtext:
+      "des startups aux protocoles établis, j'ai aidé à concrétiser leur vision",
   },
 } as const;

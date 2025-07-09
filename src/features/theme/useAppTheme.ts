@@ -26,7 +26,7 @@ export const THEME_COLOR_MAP: Record<ThemeColor, string> = {
   red: "rgb(217, 45, 98)",
   orange: "rgb(255, 119, 0)",
   yellow: "rgb(223, 185, 3)",
-  green: "rgb(27, 184, 87)",
+  green: "rgb(87, 137, 102)",
   cyan: "rgb(0, 188, 212)",
   blue: "rgb(82, 150, 250)",
   indigo: "rgb(64, 78, 255)",
@@ -87,7 +87,7 @@ export const THEMES = [
   "dark-white",
 ];
 
-export const DEFAULT_THEME = "dark-red";
+export const DEFAULT_THEME = "dark-green";
 
 export function useAppTheme() {
   const { theme, setTheme } = useTheme();

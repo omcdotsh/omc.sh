@@ -1,6 +1,46 @@
 import { Project, ProjectById, ProjectByJob } from "./projects.types";
 
 export const PROJECTS_BY_ID: ProjectById = {
+  "morpho-app-v2": {
+    title: "morpho app v2",
+    description: {
+      en: "lending and borrowing protocol for ethereum",
+      fr: "protocole de prêt et d'emprunt pour ethereum",
+    },
+    imagePath: "/images/projects/morpho-app-v2.png",
+    link: "https://app.morpho.org",
+    job: ["development"],
+  },
+  "neutrl-docs": {
+    title: "neutrl docs",
+    description: {
+      en: "documentation for the neutrl protocol",
+      fr: "documentation pour le protocole neutrl",
+    },
+    imagePath: "/images/projects/neutrl-docs.png",
+    link: "https://docs.neutrl.fi",
+    job: ["development", "design"],
+  },
+  "neutrl-landing": {
+    title: "neutrl landing",
+    description: {
+      en: "landing page for the neutrl protocol",
+      fr: "page d'accueil pour le protocole neutrl",
+    },
+    imagePath: "/images/projects/neutrl-landing.png",
+    link: "https://neutrl.fi",
+    job: ["development", "design"],
+  },
+  "neutrl-dashboard": {
+    title: "neutrl dashboard",
+    description: {
+      en: "yield dashboard for the neutrl protocol",
+      fr: "tableau de rendement pour le protocole neutrl",
+    },
+    imagePath: "/images/projects/neutrl-dashboard.png",
+    link: "https://defi.neutrl.fi",
+    job: ["development", "design"],
+  },
   "fyde-bullrun-simulator": {
     title: "fyde bullrun simulator",
     description: {
@@ -98,7 +138,7 @@ export const PROJECTS_BY_ID: ProjectById = {
       fr: "jeu javascript avec authentification metamask",
     },
     imagePath: "/images/projects/oscarmac-game-particles.png",
-    link: "https://oscarmacieira.github.io/GameParticle/",
+    link: "https://omcdotsh.github.io/GameParticle/",
     job: ["development"],
   },
   "oscarmac-coin-trainor": {
@@ -108,7 +148,7 @@ export const PROJECTS_BY_ID: ProjectById = {
       fr: "rpg style pokemon où vous pouvez faire évoluer vos cryptos",
     },
     imagePath: "/images/projects/oscarmac-coin-trainor.png",
-    link: "https://oscarmacieira.github.io/CoinTrainor/",
+    link: "https://omcdotsh.github.io/CoinTrainor/",
     job: ["development"],
   },
   "blockswan-botswan": {
