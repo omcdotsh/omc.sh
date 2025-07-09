@@ -47,12 +47,12 @@ function CompanyLogo({ company }: { company: CompanyLogo }) {
       className="flex items-center justify-center px-3 py-2 mx-1 transition-all duration-200"
       whileHover={{ scale: 1.05 }}
     >
-      <div className="relative w-16 h-10 max-h-8 flex items-center justify-center">
+      <div className="relative w-24 h-15 max-h-10 flex items-center justify-center">
         <Image
           src={company.logo}
           alt={company.alt}
-          width={64}
-          height={40}
+          width={84}
+          height={20}
           className="object-contain max-w-full max-h-full transition-all duration-200 invert-0 dark:invert"
           style={{
             filter: isDark ? "invert(1)" : "invert(0)",
@@ -93,7 +93,7 @@ export function WorkWithSection() {
           className="p-4"
           gradientColor={SITE_CONFIG.brand.primary(color ?? "red") + "20"}
         >
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex flex-wrap items-center justify-center">
             {companies.map((company, index) => (
               <CompanyLogo key={`${company.name}-${index}`} company={company} />
             ))}
