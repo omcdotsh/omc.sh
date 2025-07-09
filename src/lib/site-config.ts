@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
   socials: {
     calendar: "https://cal.com/omc.sh",
     linkedin: "https://www.linkedin.com/in/oscarmacieira",
-    github: "https://github.com/oscarmacieira",
+    github: "https://github.com/omcdotsh",
     twitter: "https://x.com/omc_sh",
     behance: "https://www.behance.net/OscarDzn",
     mail: "contact@omc.sh",

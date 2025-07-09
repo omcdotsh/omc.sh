@@ -30,7 +30,11 @@ export type ProjectId =
   | "oscarmac-twitter-banners"
   | "rainbows-dao"
   | "uta-marketplace"
-  | "uta-packages";
+  | "uta-packages"
+  | "morpho-app-v2"
+  | "neutrl-docs"
+  | "neutrl-landing"
+  | "neutrl-dashboard";
 
 export type ProjectById = Record<ProjectId, Project>;
 

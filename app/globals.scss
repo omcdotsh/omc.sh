@@ -90,8 +90,8 @@
 
   .light-green,
   .dark-green {
-    --primary: 142 76% 46%;
-    --ring: 142 76% 46%;
+    --primary: 138 22% 44%;
+    --ring: 138 22% 44%;
   }
 
   .light-cyan,
@@ -174,4 +174,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.rfm-marquee {
+  position: absolute;
 }

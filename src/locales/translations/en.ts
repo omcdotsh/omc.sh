@@ -44,6 +44,50 @@ export default {
     title: "professional experience",
     "items-pro": [
       {
+        title: "lead engineer",
+        company: "neutrl",
+        date: "jul 2025 - present",
+        description:
+          "• led the design and delivery of the DeFi dashboard, documentation site, DApp, and landing page for the Neutrl protocol, ensuring a cohesive and intuitive user experience.\n\n• developed a world-class SDK for frictionless interaction with the Neutrl protocol, supporting multiple languages and environments.\n\n• implemented CI pipelines, automated testing, and performance monitoring, guaranteeing the platform’s reliability and scalability.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "graphql",
+          "wagmi",
+          "viem",
+          "ponder",
+          "sentio",
+          "solidity",
+          "sdks",
+        ],
+      },
+      {
+        title: "software engineer",
+        company: "morpho labs",
+        date: "nov 2024 - jul 2025",
+        description:
+          "• built and shipped a cross-protocol migration feature using Morpho Bundler v3, enabling users to import positions from Aave v2/v3 and Compound v2/v3 into Morpho.\n\n• developed refinancing functionality allowing users to seamlessly move borrow positions between Morpho markets to optimize rates and collateral usage.\n\n• implemented referral SDKs, full simulation support, and a hybrid SSR/on-chain data-fetching layer to ensure accurate, real-time user interfaces across the app.",
+        skills: [
+          "typescript",
+          "react",
+          "next.js",
+          "graphql",
+          "wagmi",
+          "viem",
+          "blue-sdk",
+          "blue-sdk-viem",
+          "blue-sdk-wagmi",
+          "simulation-sdk",
+          "bundler-sdk-viem",
+          "ssr",
+          "fuul",
+          "sdk",
+          "emotion",
+          "reown",
+        ],
+      },
+      {
         title: "fullstack engineer",
         company: "fyde labs",
         date: "2024 - present",
@@ -430,5 +474,10 @@ export default {
       description:
         "build robust decentralized finance applications with cutting-edge technologies.",
     },
+  },
+  "work-with-section": {
+    title: "i've worked with",
+    subtext:
+      "from startups to established protocols, i've helped bring their vision to life",
   },
 } as const;

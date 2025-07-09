@@ -6,7 +6,6 @@ import { useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
-import { THEME_COLOR_TO_FILTER_MAP, useAppTheme } from "../theme/useAppTheme";
 import { VerticalColors } from "../theme/VerticalColors";
 
 const NAV_LINKS = [
@@ -19,7 +18,6 @@ export const Footer = () => {
   const locale = useCurrentLocale();
   const t = useScopedI18n("footer");
   const pathname = usePathname();
-  const { color } = useAppTheme();
   return (
     <motion.footer
       className="w-full bg-background/70 backdrop-blur-sm py-4"
@@ -39,13 +37,7 @@ export const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <Avatar className="w-4 h-4 md:w-8 md:h-8">
-              <AvatarImage
-                src="/icon.png"
-                style={{
-                  filter: color ? THEME_COLOR_TO_FILTER_MAP[color] : "red",
-                }}
-                alt={SITE_CONFIG.name}
-              />
+              <AvatarImage src="/icon.png" alt={SITE_CONFIG.name} />
             </Avatar>
           </motion.div>
           <div className="flex flex-col">
