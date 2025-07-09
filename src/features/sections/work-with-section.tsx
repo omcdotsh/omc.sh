@@ -1,10 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import { MagicCard } from "@/components/ui/magic-card";
-import { CardHeader, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
 import { useScopedI18n } from "@/locales/client";
 import { SITE_CONFIG } from "@/lib/site-config";
