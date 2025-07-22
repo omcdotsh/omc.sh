@@ -20,7 +20,7 @@ export async function generateMetadata({
     notFound();
   }
 
-  const coverImage = `${getServerUrl()}${post.attributes.coverUrl}`;
+  const coverImage = `https://omc.sh${post.attributes.coverUrl}`;
 
   return {
     title: post.attributes.title,
