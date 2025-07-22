@@ -1,3 +1,4 @@
+import { Route, routes } from "./routes";
 import { SITE_CONFIG } from "./site-config";
 
 /**
@@ -20,4 +21,8 @@ export const getServerUrl = () => {
 
   // If we are in development, we return the localhost URL.
   return "http://localhost:3000/";
+};
+
+export const getRouteUrl = (route: Route) => {
+  return `${getServerUrl()}${routes[route]}`;
 };

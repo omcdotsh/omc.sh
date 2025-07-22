@@ -1,3 +1,5 @@
+import { routes } from "@/lib/routes";
+
 export default {
   "hero-section": {
     title: "bonjour ami",
@@ -15,20 +17,20 @@ export default {
         value: "5",
         suffix: "+",
         ctaText: "voir mon parcours",
-        ctaLink: "/xp?tab=professional",
+        ctaLink: `${routes.xp}?tab=professional`,
       },
       {
         label: "clients satisfaits partout dans le monde",
         value: "20",
         suffix: "+",
         ctaText: "quelques exemples",
-        ctaLink: "/portfolio",
+        ctaLink: routes.portfolio,
       },
       {
         label: "abandons universitaires, parce qu'honnêtement c'est ennuyeux",
         value: "2",
         ctaText: "voir ça",
-        ctaLink: "/xp?tab=academic",
+        ctaLink: `${routes.xp}?tab=academic`,
       },
       {
         label: "victoire à un hackathon blockchain dans la poche",
@@ -479,5 +481,11 @@ export default {
     title: "j'ai travaillé avec",
     subtext:
       "des startups aux protocoles établis, j'ai aidé à concrétiser leur vision",
+  },
+  "blog-section": {
+    categories: {
+      all: "tout",
+    },
+    back: "retour au blog",
   },
 } as const;

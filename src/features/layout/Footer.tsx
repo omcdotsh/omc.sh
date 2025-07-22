@@ -7,11 +7,13 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { VerticalColors } from "../theme/VerticalColors";
+import { routes } from "@/lib/routes";
 
 const NAV_LINKS = [
-  { href: "/", label: "omc.sh" },
-  { href: "/xp", label: "xp" },
-  { href: "/portfolio", label: "portfolio" },
+  { href: routes.home, label: "omc.sh" },
+  { href: routes.xp, label: "xp" },
+  { href: routes.portfolio, label: "portfolio" },
+  { href: routes.blog, label: "blog" },
 ];
 
 export const Footer = () => {

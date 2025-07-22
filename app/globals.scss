@@ -179,3 +179,54 @@
 .rfm-marquee {
   position: absolute;
 }
+
+.prose {
+  scroll-margin-top: 40px;
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    position: relative;
+    scroll-margin-top: 70px;
+    margin-top: 2rem;
+    color: hsl(var(--primary));
+    font-weight: 600;
+
+    &:hover {
+      & .icon-link {
+        opacity: 1;
+      }
+    }
+  }
+
+  & .icon.icon-link {
+    width: 20px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -24px;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    &::before {
+      content: "#";
+      font-size: 1.5rem;
+      color: hsl(var(--primary));
+    }
+  }
+
+  & p {
+    margin-top: 1rem;
+  }
+
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}

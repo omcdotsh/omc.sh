@@ -1,6 +1,6 @@
 "use client";
 
-import { ChefHat, FlaskConical } from "lucide-react";
+import { ChefHat, FlaskConical, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -21,6 +21,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCurrentLocale } from "@/locales/client";
+import { routes } from "@/lib/routes";
 
 export const Sidebar = () => {
   const pathnameWithLocale = usePathname();
@@ -72,15 +73,21 @@ export const Sidebar = () => {
       >
         <SidebarItem
           icon={FlaskConical}
-          href="/xp"
+          href={routes.xp}
           label="XP"
-          active={pathname === "/xp"}
+          active={pathname === routes.xp}
         />
         <SidebarItem
           icon={ChefHat}
-          href="/portfolio"
+          href={routes.portfolio}
           label="portfolio"
-          active={pathname === "/portfolio"}
+          active={pathname === routes.portfolio}
+        />
+        <SidebarItem
+          icon={Newspaper}
+          href={routes.blog}
+          label="blog"
+          active={pathname.includes(routes.blog)}
         />
       </motion.nav>
 

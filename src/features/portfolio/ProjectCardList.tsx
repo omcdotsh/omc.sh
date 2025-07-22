@@ -104,6 +104,7 @@ export const Card = ({
     </MagicCard>
   );
 };
+
 export const CardTitle = ({
   className,
   children,

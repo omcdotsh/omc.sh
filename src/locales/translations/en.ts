@@ -1,3 +1,5 @@
+import { routes } from "@/lib/routes";
+
 export default {
   "hero-section": {
     title: "gm friend",
@@ -15,20 +17,20 @@ export default {
         value: "5",
         suffix: "+",
         ctaText: "see my journey",
-        ctaLink: "/xp?tab=professional",
+        ctaLink: `${routes.xp}?tab=professional`,
       },
       {
         label: "satisfied clients worldwide, from startups to big players",
         value: "20",
         suffix: "+",
         ctaText: "some examples",
-        ctaLink: "/portfolio",
+        ctaLink: routes.portfolio,
       },
       {
         label: "university dropouts, because honestly it's boring",
         value: "2",
         ctaText: "see that",
-        ctaLink: "/xp?tab=academic",
+        ctaLink: `${routes.xp}?tab=academic`,
       },
       {
         label: "blockchain hackathon victory in the pocket",
@@ -479,5 +481,11 @@ export default {
     title: "i've worked with",
     subtext:
       "from startups to established protocols, i've helped bring their vision to life",
+  },
+  "blog-section": {
+    categories: {
+      all: "all",
+    },
+    back: "back to blog",
   },
 } as const;
