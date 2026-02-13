@@ -11,13 +11,12 @@ export const generateMetadata = combineWithParentMetadata({
 });
 
 export default async function RoutePage(props: PageParams<{ locale: Locale }>) {
-  const { locale } = props.params;
+  const { locale } = await props.params;
 
-  const categories = await BlogUtils.getCategories({
-    locale,
-  });
-
-  const posts = await BlogUtils.getPosts({ locale });
+  const [categories, posts] = await Promise.all([
+    BlogUtils.getCategories({ locale }),
+    BlogUtils.getPosts({ locale }),
+  ]);
 
   return <BlogContent articles={posts} categories={categories} />;
 }

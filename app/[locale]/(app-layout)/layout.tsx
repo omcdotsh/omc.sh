@@ -1,14 +1,18 @@
-import { LayoutParams } from "@/types/next.types";
 import { AppNavigation } from "./app-navigation";
 import { Locale } from "@/locales/locales";
 import { I18nProviderClient } from "@/locales/client";
+import type { ReactNode } from "react";
 
-export default function RouteLayout({
+export default async function RouteLayout({
   children,
-  params: { locale },
-}: LayoutParams<{ locale: Locale }>) {
+  params,
+}: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   return (
-    <I18nProviderClient locale={locale}>
+    <I18nProviderClient locale={locale as Locale}>
       <AppNavigation>{children}</AppNavigation>
     </I18nProviderClient>
   );

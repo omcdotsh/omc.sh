@@ -60,7 +60,7 @@ export async function generateStaticParams() {
 }
 
 export default async function RoutePage(props: BlogPostParams) {
-  const { slug, locale } = props.params;
+  const { slug, locale } = await props.params;
   const post = await BlogUtils.getCurrentPost(slug, locale);
 
   if (!post) {

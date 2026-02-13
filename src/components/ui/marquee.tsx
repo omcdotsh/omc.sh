@@ -34,7 +34,7 @@ export function Marquee({
         ease: "linear",
         duration: 20,
       },
-    });
+    } as Parameters<typeof controls.start>[0]);
   }, [controls, axis, reverse]);
 
   return (

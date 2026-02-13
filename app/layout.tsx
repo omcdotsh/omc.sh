@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { Providers } from "./providers";
 import { Inconsolata } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+
 import "./confetti-theme.scss";
 import "./globals.scss";
 
@@ -32,7 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${FONT.className} antialiased`}>
-        <Providers>{children}</Providers>
+        <NuqsAdapter>
+          <Providers>{children}</Providers>
+        </NuqsAdapter>
+        <Analytics />
       </body>
     </html>
   );

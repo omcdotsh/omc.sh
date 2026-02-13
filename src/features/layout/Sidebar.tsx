@@ -165,7 +165,7 @@ const SidebarItem = ({
   href,
   target,
 }: {
-  icon: React.ElementType;
+  icon: React.ComponentType<{ className?: string }>;
   label: string;
   active?: boolean;
   href?: string;

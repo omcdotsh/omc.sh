@@ -3,6 +3,7 @@ import { PageParams } from "@/types/next.types";
 import fm from "front-matter";
 import fs from "fs/promises";
 import path from "path";
+import { cache } from "react";
 import { z } from "zod";
 
 const getBlogDirectory = (locale: Locale) => {
@@ -46,13 +47,13 @@ export const BlogUtils = {
     return readingTimeMinutes;
   },
 
-  getPosts: async ({
+  getPosts: cache(async function getPosts({
     locale,
     category,
   }: {
     locale?: Locale;
     category?: string;
-  }) => {
+  }) {
     const fileNames = await fs.readdir(
       getBlogDirectory(locale ?? DEFAULT_LOCALE)
     );
@@ -109,7 +110,7 @@ export const BlogUtils = {
         new Date(a.attributes.date).getTime()
       );
     });
-  },
+  }),
 
   getCategories: async ({ locale }: { locale?: Locale }) => {
     const posts = await BlogUtils.getPosts({ locale });

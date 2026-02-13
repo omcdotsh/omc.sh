@@ -54,8 +54,12 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
     return () => clearInterval(cursorInterval);
   }, []);
 
+  const Wrapper = Component as React.ComponentType<{
+    className?: string;
+    children?: React.ReactNode;
+  }>;
   return (
-    <Component className={cn("relative", className)}>
+    <Wrapper className={cn("relative", className)}>
       {currentText}
       <span
         className={cn(
@@ -63,7 +67,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
           { invisible: !showCursor },
           cursorClassName
         )}
-      ></span>
-    </Component>
+      />
+    </Wrapper>
   );
 };

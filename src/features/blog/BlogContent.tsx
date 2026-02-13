@@ -14,13 +14,13 @@ const articleVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.32, ease: "easeOut" },
+    transition: { duration: 0.32, ease: "easeOut" as const },
   },
   exit: {
     opacity: 0,
     y: 24,
     scale: 0.98,
-    transition: { duration: 0.22, ease: "easeIn" },
+    transition: { duration: 0.22, ease: "easeIn" as const },
   },
 };
 
