@@ -48,9 +48,9 @@ export default {
       {
         title: "lead engineer",
         company: "neutrl",
-        date: "jul 2025 - present",
+        date: "aug 2025 - present",
         description:
-          "• led the design and delivery of the DeFi dashboard, documentation site, DApp, and landing page for the Neutrl protocol, ensuring a cohesive and intuitive user experience.\n\n• developed a world-class SDK for frictionless interaction with the Neutrl protocol, supporting multiple languages and environments.\n\n• implemented CI pipelines, automated testing, and performance monitoring, guaranteeing the platform’s reliability and scalability.",
+          "• led the architecture and delivery of a DeFi protocol that reached $230M peak TVL, contributing across Solidity, backend, data infrastructure and frontend while owning protocol integrations and product architecture.\n\n• designed and shipped core protocol features including structured products, staking, lock commitments, points, referrals, reward distribution and Merkle claims, writing Solidity contracts, integrating audited protocols, and translating complex financial primitives into intuitive user experiences.\n\n• built and maintained the protocol stack spanning smart contract integrations, indexers, GraphQL APIs, analytics pipelines, SDKs and frontend applications, enabling real-time portfolio tracking, incentive calculations and protocol insights.\n\n• collaborated directly with founders and engineers to take products from concept to production, rapidly shipping protocol-critical features used to manage hundreds of millions of dollars in on-chain assets.",
         skills: [
           "typescript",
           "react",
@@ -59,17 +59,18 @@ export default {
           "wagmi",
           "viem",
           "ponder",
-          "sentio",
+          "envio",
           "solidity",
+          "foundry",
           "sdks",
         ],
       },
       {
         title: "software engineer",
-        company: "morpho labs",
-        date: "nov 2024 - jul 2025",
+        company: "morpho",
+        date: "dec 2024 - aug 2025",
         description:
-          "• built and shipped a cross-protocol migration feature using Morpho Bundler v3, enabling users to import positions from Aave v2/v3 and Compound v2/v3 into Morpho.\n\n• developed refinancing functionality allowing users to seamlessly move borrow positions between Morpho markets to optimize rates and collateral usage.\n\n• implemented referral SDKs, full simulation support, and a hybrid SSR/on-chain data-fetching layer to ensure accurate, real-time user interfaces across the app.",
+          "• shipped major components of Morpho App V2, building lending, borrowing and position-management infrastructure used to onboard and migrate capital across DeFi protocols.\n\n• built and launched cross-protocol migration flows using Morpho Bundler v3, enabling seamless migration of lending and borrowing positions from Aave v2/v3 and Compound v2/v3 into Morpho.\n\n• developed refinancing workflows allowing users to efficiently rebalance debt positions across Morpho markets, optimizing borrowing costs and collateral utilization.\n\n• implemented transaction simulations, referral infrastructure and hybrid SSR/on-chain data fetching systems, ensuring reliable real-time portfolio visualization and execution previews.",
         skills: [
           "typescript",
           "react",
@@ -91,10 +92,10 @@ export default {
       },
       {
         title: "fullstack engineer",
-        company: "fyde labs",
-        date: "2024 - present",
+        company: "fyde",
+        date: "feb 2024 - dec 2024",
         description:
-          "• led the development of user-facing applications interacting with smart contracts, reducing bundle size by over 40% and improving cls by 25%, enhancing visual stability and user experience.\n\n• maintained, optimized and added new protocol related features using wagmi and viem, successfully supporting traffic spikes exceeding 1000% during the token generation event (tge) and handling 50,000+ monthly visits.\n\n• built a bullrun trading simulation game, resulting in 300+ blockchain smart accounts created through a seamless web3 authentication system and cumulating 5,000+ games launched.",
+          "• led frontend development for a DeFi protocol, delivering user-facing infrastructure across staking, rewards, onboarding and smart-contract interactions.\n\n• architected and optimized high-performance frontend systems, reducing bundle size by 40%+ and improving CLS by 25%, significantly enhancing application reliability and user experience.\n\n• built protocol integrations and wallet infrastructure using Wagmi, Viem and account abstraction, supporting 10x traffic growth during TGE events, serving 50,000+ monthly visits, and driving the creation of 300+ smart accounts through a blockchain trading simulation platform.",
         skills: [
           "typescript",
           "react",
@@ -114,9 +115,9 @@ export default {
       {
         title: "fullstack engineer",
         company: "pimster",
-        date: "2023 - 2024",
+        date: "jun 2023 - feb 2024",
         description:
-          "• led full-stack development from concept to deployment as part of a team, implementing a customer onboarding flow that increased account creation rates and improved user experience.\n\n• collaborated on engineering postgresql migration processes to enhance frontend functionality, boosting crm team productivity by 70%.\n\n• contributed to graphql components, a custom strapi plugin, and a nestjs api for efficient data handling.\n\n• developed and optimized features for saas client applications and mobile interfaces using next.js, ensuring scalability and high user engagement within a collaborative team environment.",
+          "• developed and shipped full-stack features across customer-facing and enterprise applications, contributing to onboarding, content management and engagement workflows used by 30+ enterprise brands.\n\n• contributed to a large-scale PostgreSQL migration and platform modernization effort, improving internal tooling and increasing CRM team productivity by 70%.\n\n• built scalable application layers using Next.js, GraphQL, NestJS and Strapi, enabling rapid product iteration across web, mobile and enterprise platforms.",
         skills: [
           "typescript",
           "react",

@@ -48,9 +48,9 @@ export default {
       {
         title: "lead développeur",
         company: "neutrl",
-        date: "juil 2025 - présent",
+        date: "août 2025 - présent",
         description:
-          "• direction du design et de la livraison du tableau de bord DeFi, du site de documentation, de l'application et de la page d'accueil pour le protocole Neutrl, garantissant une expérience utilisateur cohérente et intuitive.\n\n• développement d'un SDK de classe mondiale pour une interaction fluide avec le protocole Neutrl, prenant en charge plusieurs langues et environnements.\n\n• mise en place de pipelines CI, tests automatisés et surveillance des performances, garantissant la fiabilité et l'évolutivité de la plateforme.",
+          "• direction de l'architecture et de la livraison d'un protocole DeFi ayant atteint 230 M$ de TVL au pic, avec des contributions en Solidity, backend, infrastructure de données et frontend, tout en portant les intégrations protocole et l'architecture produit.\n\n• conception et livraison des fonctionnalités cœur du protocole : produits structurés, staking, engagements de lock, points, referrals, distribution de rewards et Merkle claims — écriture de contrats Solidity, intégration de protocoles audités, et traduction de primitives financières complexes en expériences utilisateur intuitives.\n\n• construction et maintenance de la stack protocole : intégrations smart contracts, indexeurs, APIs GraphQL, pipelines analytics, SDKs et applications frontend, pour le suivi de portefeuille en temps réel, le calcul d'incentives et les insights protocole.\n\n• collaboration directe avec les fondateurs et ingénieurs pour passer du concept à la production, en livrant rapidement des features critiques gérant des centaines de millions de dollars d'actifs on-chain.",
         skills: [
           "typescript",
           "react",
@@ -59,17 +59,18 @@ export default {
           "wagmi",
           "viem",
           "ponder",
-          "sentio",
+          "envio",
           "solidity",
+          "foundry",
           "sdks",
         ],
       },
       {
         title: "ingénieur logiciel",
-        company: "morpho labs",
-        date: "nov 2024 - juil 2025",
+        company: "morpho",
+        date: "déc 2024 - août 2025",
         description:
-          "• conception et déploiement d’une fonctionnalité de migration inter-protocoles via Morpho Bundler v3, permettant aux utilisateurs d’importer leurs positions depuis Aave v2/v3 et Compound v2/v3 vers Morpho.\n\n• développement d’une fonctionnalité de refinancement permettant aux utilisateurs de déplacer en toute transparence leurs positions d’emprunt entre les marchés Morpho pour optimiser les taux et l’utilisation des garanties.\n\n• mise en place des SDK de parrainage, prise en charge complète de la simulation et d’une couche hybride SSR/chargement de données on-chain pour garantir des interfaces utilisateur précises et en temps réel dans toute l’application.",
+          "• livraison de composants majeurs de Morpho App V2 : infrastructure de lending, borrowing et gestion de positions pour onboarder et migrer du capital à travers les protocoles DeFi.\n\n• conception et lancement de flux de migration inter-protocoles via Morpho Bundler v3, permettant de migrer des positions de lending et borrowing depuis Aave v2/v3 et Compound v2/v3 vers Morpho.\n\n• développement de workflows de refinancement pour rééquilibrer efficacement les positions de dette entre marchés Morpho, en optimisant coûts d'emprunt et utilisation du collatéral.\n\n• mise en place des simulations de transactions, de l'infrastructure de referral et d'une couche hybride SSR/données on-chain, pour une visualisation de portefeuille fiable en temps réel et des previews d'exécution.",
         skills: [
           "typescript",
           "react",
@@ -91,10 +92,10 @@ export default {
       },
       {
         title: "ingénieur fullstack",
-        company: "fyde labs",
-        date: "janv 2024 - nov 2024",
+        company: "fyde",
+        date: "fév 2024 - déc 2024",
         description:
-          "• direction du développement d'applications utilisateur interagissant avec des smart contracts, réduisant la taille des bundles de plus de 40% et améliorant le cls de 25%, optimisant la stabilité visuelle et l'expérience utilisateur.\n\n• maintenance, optimisation et ajout de nouvelles fonctionnalités liées au protocole utilisant wagmi et viem, supportant avec succès des pics de trafic dépassant 1000% pendant l'événement de génération de tokens (tge) et gérant plus de 50 000 visites mensuelles.\n\n• création d'un jeu de simulation de trading bullrun, aboutissant à plus de 300 comptes blockchain créés via un système d'authentification web3 fluide et cumulant plus de 5 000 parties lancées.",
+          "• direction du développement frontend d'un protocole DeFi, livrant l'infrastructure utilisateur pour le staking, les rewards, l'onboarding et les interactions smart contracts.\n\n• architecture et optimisation de systèmes frontend haute performance : réduction de la taille des bundles de 40%+ et amélioration du CLS de 25%, renforçant fiabilité et expérience utilisateur.\n\n• construction des intégrations protocole et de l'infrastructure wallet avec Wagmi, Viem et account abstraction, supportant une croissance de trafic x10 pendant les TGE, 50 000+ visites mensuelles, et la création de 300+ smart accounts via une plateforme de simulation de trading blockchain.",
         skills: [
           "typescript",
           "react",
@@ -114,9 +115,9 @@ export default {
       {
         title: "ingénieur fullstack",
         company: "pimster",
-        date: "2023 - 2024",
+        date: "juin 2023 - fév 2024",
         description:
-          "• direction du développement full-stack du concept au déploiement au sein d'une équipe, implémentant un flux d'intégration client qui a augmenté les taux de création de comptes et amélioré l'expérience utilisateur.\n\n• collaboration sur les processus de migration postgresql pour améliorer les fonctionnalités frontend, augmentant la productivité de l'équipe crm de 70%.\n\n• contribution aux composants graphql, à un plugin strapi personnalisé et à une api nestjs pour une gestion efficace des données.\n\n• développement et optimisation de fonctionnalités pour les applications client saas et les interfaces mobiles utilisant next.js, assurant l'évolutivité et un engagement élevé des utilisateurs dans un environnement d'équipe collaboratif.",
+          "• développement et livraison de features full-stack sur les applications client et entreprise, contribuant à l'onboarding, la gestion de contenu et les workflows d'engagement utilisés par 30+ marques enterprise.\n\n• contribution à une migration PostgreSQL à grande échelle et à la modernisation de la plateforme, améliorant les outils internes et augmentant la productivité de l'équipe CRM de 70%.\n\n• construction de couches applicatives scalables avec Next.js, GraphQL, NestJS et Strapi, permettant une itération produit rapide sur le web, le mobile et les plateformes enterprise.",
         skills: [
           "typescript",
           "react",
