@@ -32,6 +32,7 @@ export type ProjectId =
   | "uta-marketplace"
   | "uta-packages"
   | "morpho-app-v2"
+  | "neutrl-app"
   | "neutrl-docs"
   | "neutrl-landing"
   | "neutrl-dashboard";

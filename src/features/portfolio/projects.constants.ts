@@ -11,6 +11,16 @@ export const PROJECTS_BY_ID: ProjectById = {
     link: "https://app.morpho.org",
     job: ["development"],
   },
+  "neutrl-app": {
+    title: "neutrl app",
+    description: {
+      en: "institutional-grade synthetic dollar protocol",
+      fr: "protocole de dollar synthétique institutionnel",
+    },
+    imagePath: "/images/projects/neutrl-app.png",
+    link: "https://app.neutrl.finance",
+    job: ["development", "design"],
+  },
   "neutrl-docs": {
     title: "neutrl docs",
     description: {
@@ -246,11 +256,11 @@ export const PROJECTS_BY_ID: ProjectById = {
 export const ALL_PROJECTS: Project[] = Object.values(PROJECTS_BY_ID);
 
 export const DESIGNER_PROJECTS: Project[] = Object.values(
-  PROJECTS_BY_ID
+  PROJECTS_BY_ID,
 ).filter((project) => project.job.includes("design"));
 
 export const DEVELOPER_PROJECTS: Project[] = Object.values(
-  PROJECTS_BY_ID
+  PROJECTS_BY_ID,
 ).filter((project) => project.job.includes("development"));
 
 export const PROJECT_BY_JOB: ProjectByJob = {
