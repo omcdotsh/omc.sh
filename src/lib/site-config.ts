@@ -1,9 +1,9 @@
 import { HEXA_COLOR_MAP, ThemeColor } from "@/features/theme/useAppTheme";
 
 export const SITE_CONFIG = {
-  name: "omc.sh",
+  name: "omc.",
   description:
-    "innovative fullstack developer specialized in defi and blockchain applications",
+    "End-to-end crypto products — from protocol to interface to ship. Design-led builds with engineering depth.",
   productionUrl: "https://omc.sh",
   appIcon: "/images/icon.png",
   brand: {

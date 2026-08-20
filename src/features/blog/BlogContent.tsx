@@ -7,22 +7,7 @@ import { ArticleCard } from "./ArticleCard";
 import { BlogPost } from "./blogUtils";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { useQueryState } from "nuqs";
-
-const articleVariants = {
-  initial: { opacity: 0, y: 24, scale: 0.98 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.32, ease: "easeOut" as const },
-  },
-  exit: {
-    opacity: 0,
-    y: 24,
-    scale: 0.98,
-    transition: { duration: 0.22, ease: "easeIn" as const },
-  },
-};
+import { PageHero } from "@/components/layout/page-hero";
 
 export const BlogContent = ({
   articles,
@@ -32,6 +17,7 @@ export const BlogContent = ({
   categories: string[];
 }) => {
   const t = useScopedI18n("blog-section.categories");
+  const page = useScopedI18n("blog-page");
   const allCategory = t("all");
   const locale = useCurrentLocale();
 
@@ -58,31 +44,37 @@ export const BlogContent = ({
   }, [locale, setSelectedCategory, allCategory]);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-2">
+    <div className="omc-container w-full">
+      <PageHero
+        index="NT"
+        kicker={page("kicker")}
+        title={page("title")}
+        description={page("description")}
+      />
+
+      <div className="mt-8 flex flex-col gap-8">
         <BlogCategories
           categories={allCategories}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
-      </div>
 
-      <div className="flex flex-col gap-2">
-        <AnimatePresence initial={false}>
-          {filteredArticles.map((article, idx) => (
-            <motion.div
-              key={`${article.attributes.title}-${idx}`}
-              layout
-              variants={articleVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ delay: idx * 0.05 }}
-            >
-              <ArticleCard {...article} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
+        <div className="flex flex-col border-t border-foreground/15">
+          <AnimatePresence initial={false}>
+            {filteredArticles.map((article, idx) => (
+              <motion.div
+                key={`${article.attributes.title}-${idx}`}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                transition={{ duration: 0.35, delay: idx * 0.04 }}
+              >
+                <ArticleCard {...article} index={idx} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

@@ -2,17 +2,30 @@ import type { Metadata } from "next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { Providers } from "./providers";
-import { Inconsolata } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
-import "./confetti-theme.scss";
 import "./globals.scss";
 
-const FONT = Inconsolata({
+const display = Archivo({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-display",
   display: "swap",
-  adjustFontFallback: false,
+});
+
+const sans = Archivo({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +47,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${FONT.className} antialiased`}>
+      <body
+        className={`${display.variable} ${sans.variable} ${mono.variable} font-sans antialiased`}
+      >
         <NuqsAdapter>
           <Providers>{children}</Providers>
         </NuqsAdapter>

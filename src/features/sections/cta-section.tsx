@@ -1,83 +1,113 @@
 "use client";
 
-import { useScopedI18n } from "@/locales/client";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Link2, Lock, Globe } from "lucide-react";
+import { useScopedI18n, useCurrentLocale } from "@/locales/client";
+import { Reveal, RevealStagger, revealItem } from "@/components/motion/reveal";
+import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/motion/magnetic";
+import Link from "next/link";
+import { SITE_CONFIG } from "@/lib/site-config";
+import { routes } from "@/lib/routes";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export const CtaSection = () => {
   const t = useScopedI18n("cta-section");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const locale = useCurrentLocale();
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.2,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
+  const principles = [
+    {
+      n: "01",
+      title: t("1.title"),
+      description: t("1.description"),
+      accent: "var(--spectrum-yellow)",
     },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
+    {
+      n: "02",
+      title: t("2.title"),
+      description: t("2.description"),
+      accent: "var(--spectrum-blue)",
     },
-  };
+    {
+      n: "03",
+      title: t("3.title"),
+      description: t("3.description"),
+      accent: "var(--spectrum-pink)",
+    },
+  ];
 
   return (
-    <motion.div
-      ref={ref}
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      className="w-full p-8 bg-primary/10 rounded-lg shadow-lg"
-    >
-      <motion.h2
-        variants={itemVariants}
-        className="text-3xl font-bold mb-6 text-primary text-center"
-      >
-        {t("title")}
-      </motion.h2>
-      <div className="flex flex-col gap-6 mb-8">
-        {[
-          {
-            icon: Link2,
-            title: t("1.title"),
-            description: t("1.description"),
-          },
-          {
-            icon: Lock,
-            title: t("2.title"),
-            description: t("2.description"),
-          },
-          {
-            icon: Globe,
-            title: t("3.title"),
-            description: t("3.description"),
-          },
-        ].map((feature, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="flex flex-col items-center text-center p-6 bg-background rounded-lg "
-          >
-            <feature.icon className="w-12 h-12 mb-4 text-primary" />
-            <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-            <p className="text-sm text-muted-foreground">
-              {feature.description}
+    <section className="py-16">
+      <div className="omc-container">
+        <Reveal>
+          <div className="mb-10 grid gap-6 border-b border-foreground/10 pb-8 md:grid-cols-[1fr_0.8fr] md:items-end">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                04 / {t("eyebrow")}
+              </p>
+              <h2 className="mt-3 font-display text-[clamp(2.25rem,6vw,4.5rem)] font-black leading-[0.95] tracking-[-0.04em]">
+                {t("title")}
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground md:justify-self-end md:text-right">
+              {t("subtext")}
             </p>
-          </motion.div>
-        ))}
+          </div>
+        </Reveal>
+
+        <RevealStagger className="grid gap-0 border border-foreground/10 md:grid-cols-3">
+          {principles.map((item, i) => (
+            <motion.div
+              key={item.n}
+              variants={revealItem}
+              className={`group relative overflow-hidden p-7 transition-colors duration-300 hover:bg-foreground hover:text-background ${
+                i < principles.length - 1
+                  ? "border-b border-foreground/10 md:border-b-0 md:border-r"
+                  : ""
+              }`}
+            >
+              <p className="inline-flex items-center gap-2 font-mono text-xs">
+                <span
+                  className="size-1.5 rounded-full transition-transform group-hover:scale-125"
+                  style={{ backgroundColor: item.accent }}
+                />
+                {item.n}
+              </p>
+              <h3 className="mt-5 font-display text-2xl font-bold tracking-tight">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-background/70">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </RevealStagger>
+
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Magnetic>
+              <Button size="lg" asChild>
+                <Link
+                  target="_blank"
+                  href={SITE_CONFIG.socials.calendar}
+                  className="inline-flex items-center gap-2"
+                >
+                  {t("cta")}
+                  <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+            </Magnetic>
+            <Button variant="outline" size="lg" asChild>
+              <Link
+                href={`/${locale}${routes.xp}`}
+                className="inline-flex items-center gap-2"
+              >
+                {t("secondaryCta")}
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+        </Reveal>
       </div>
-    </motion.div>
+    </section>
   );
 };

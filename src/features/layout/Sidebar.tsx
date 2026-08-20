@@ -1,6 +1,6 @@
 "use client";
 
-import { ChefHat, FlaskConical, Newspaper } from "lucide-react";
+import { BookOpen, Briefcase, FolderKanban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
   IconBrandGithub,
@@ -28,29 +28,24 @@ export const Sidebar = () => {
   const locale = useCurrentLocale();
   const pathname = pathnameWithLocale.replace(`/${locale}`, "");
   const isHome = pathnameWithLocale === `/${locale}`;
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.aside
-      className="inset-y z-20 flex h-[100dvh] flex-col sticky top-0 overflow-hidden"
-      initial={{ opacity: 0, x: -20 }}
+      className="sticky top-0 z-20 flex h-[100dvh] flex-col overflow-hidden border-r border-border/80"
+      initial={reduceMotion ? false : { opacity: 0, x: -12 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
     >
-      <motion.div
-        className="p-2"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.3 }}
-      >
+      <div className="p-2">
         <Button
           variant="outline"
           size="icon"
           aria-label="Home"
           asChild
           className={cn(
-            "overflow-hidden p-0 rounded-lg",
-            "transition-all duration-300",
-            isHome ? "scale-110" : "scale-100"
+            "overflow-hidden rounded-md p-0 transition-colors duration-200",
+            isHome && "border-primary"
           )}
         >
           <Link
@@ -64,42 +59,32 @@ export const Sidebar = () => {
             }}
           />
         </Button>
-      </motion.div>
-      <motion.nav
-        className="grid gap-1 p-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
+      </div>
+
+      <nav className="grid gap-1 p-2">
         <SidebarItem
-          icon={FlaskConical}
+          icon={Briefcase}
           href={routes.xp}
-          label="XP"
+          label="xp"
           active={pathname === routes.xp}
         />
         <SidebarItem
-          icon={ChefHat}
+          icon={FolderKanban}
           href={routes.portfolio}
           label="portfolio"
           active={pathname === routes.portfolio}
         />
         <SidebarItem
-          icon={Newspaper}
+          icon={BookOpen}
           href={routes.blog}
           label="blog"
           active={pathname.includes(routes.blog)}
         />
-      </motion.nav>
+      </nav>
 
-      <div className="flex flex-col items-center justify-center flex-grow mx-auto">
-        <motion.div
-          className="w-[1px] bg-primary mx-auto ml-1"
-          initial={{ height: 0 }}
-          animate={{ height: "100%" }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
-        />
-
-        <div className="text-xs text-muted-foreground flex flex-col items-center my-2">
+      <div className="mx-auto flex flex-grow flex-col items-center justify-center">
+        <div className="mx-auto ml-1 w-px flex-1 bg-border" />
+        <div className="my-2 flex flex-col items-center font-mono text-[10px] text-muted-foreground">
           <span>©</span>
           {new Date()
             .getFullYear()
@@ -109,20 +94,10 @@ export const Sidebar = () => {
               <span key={index}>{digit}</span>
             ))}
         </div>
-
-        <motion.div
-          className="w-[1px] bg-primary mx-auto ml-1"
-          initial={{ height: 0 }}
-          animate={{ height: "100%" }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
-        />
+        <div className="mx-auto ml-1 w-px flex-1 bg-border" />
       </div>
-      <motion.nav
-        className="mt-auto grid gap-1 p-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
-      >
+
+      <nav className="mt-auto grid gap-1 p-2">
         <SidebarItem
           icon={IconBrandGithub}
           label="github"
@@ -153,7 +128,7 @@ export const Sidebar = () => {
           href={`mailto:${SITE_CONFIG.socials.mail}`}
           target="_blank"
         />
-      </motion.nav>
+      </nav>
     </motion.aside>
   );
 };
@@ -174,25 +149,23 @@ const SidebarItem = ({
   <TooltipProvider>
     <Tooltip>
       <TooltipTrigger asChild>
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <Button
-            asChild
-            variant={"ghost"}
-            size="icon"
-            className={cn([
-              `rounded-lg p-0`,
-              active ? "border border-primary text-primary" : "",
-            ])}
-            disabled={active}
-            aria-label={label}
-          >
-            <Link href={href ?? ""} target={target}>
-              <Icon className="size-5 cursor-pointer" />
-            </Link>
-          </Button>
-        </motion.div>
+        <Button
+          asChild
+          variant="ghost"
+          size="icon"
+          className={cn(
+            "rounded-md p-0 transition-colors duration-200",
+            active && "border border-primary text-primary"
+          )}
+          disabled={active}
+          aria-label={label}
+        >
+          <Link href={href ?? ""} target={target}>
+            <Icon className="size-5 cursor-pointer" />
+          </Link>
+        </Button>
       </TooltipTrigger>
-      <TooltipContent side="right" sideOffset={5}>
+      <TooltipContent side="right" sideOffset={5} className="font-mono text-xs">
         {label}
       </TooltipContent>
     </Tooltip>

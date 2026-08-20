@@ -5,8 +5,10 @@ import { ProjectCardList } from "@/features/portfolio/ProjectCardList";
 import { PROJECT_BY_JOB } from "@/features/portfolio/projects.constants";
 import { ProjectJob } from "@/features/portfolio/projects.types";
 import { useQueryState } from "nuqs";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useScopedI18n } from "@/locales/client";
+import { PageHero } from "@/components/layout/page-hero";
+import { cn } from "@/lib/utils";
 
 type PortfolioTab = "development" | "design";
 
@@ -27,46 +29,59 @@ export const PortfolioContent = () => {
   });
 
   return (
-    <motion.div
-      className="w-full flex flex-col gap-2"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Tabs
-        value={as ?? DEFAULT_JOB}
-        onValueChange={(value) => setAs(value as ProjectJob)}
-        className="w-full"
-      >
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="development">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+    <div className="w-full">
+      <div className="omc-container">
+        <PageHero
+          index="WK"
+          kicker={t("kicker")}
+          title={t("title")}
+          description={t("description")}
+        />
+
+        <Tabs
+          value={as ?? DEFAULT_JOB}
+          onValueChange={(value) => setAs(value as ProjectJob)}
+          className="mt-10 w-full"
+        >
+          <TabsList className="mb-8 grid h-auto w-full max-w-md grid-cols-2 gap-0 rounded-pill border border-foreground/10 bg-transparent p-1">
+            <TabsTrigger
+              value="development"
+              className={cn(
+                "rounded-pill py-3 font-mono text-xs uppercase tracking-[0.16em]",
+                "data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              )}
             >
               {t("tabs.0")}
-            </motion.span>
-          </TabsTrigger>
-          <TabsTrigger value="design">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            </TabsTrigger>
+            <TabsTrigger
+              value="design"
+              className={cn(
+                "rounded-pill py-3 font-mono text-xs uppercase tracking-[0.16em]",
+                "data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              )}
             >
               {t("tabs.1")}
-            </motion.span>
-          </TabsTrigger>
-        </TabsList>
-        <AnimatePresence mode="wait">
-          <motion.div key={as}>
-            <TabsContent value="development">
-              <ProjectCardList items={PROJECT_BY_JOB.development} />
-            </TabsContent>
-            <TabsContent value="design">
-              <ProjectCardList items={PROJECT_BY_JOB.design} />
-            </TabsContent>
-          </motion.div>
-        </AnimatePresence>
-      </Tabs>
-    </motion.div>
+            </TabsTrigger>
+          </TabsList>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={as}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35 }}
+            >
+              <TabsContent value="development" className="mt-0">
+                <ProjectCardList items={PROJECT_BY_JOB.development} />
+              </TabsContent>
+              <TabsContent value="design" className="mt-0">
+                <ProjectCardList items={PROJECT_BY_JOB.design} />
+              </TabsContent>
+            </motion.div>
+          </AnimatePresence>
+        </Tabs>
+      </div>
+    </div>
   );
 };

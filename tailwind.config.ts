@@ -19,9 +19,32 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "monospace",
+        ],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        signal: "hsl(var(--signal))",
+        dot: "hsl(var(--dot))",
+        spectrum: {
+          red: "var(--spectrum-red)",
+          orange: "var(--spectrum-orange)",
+          yellow: "var(--spectrum-yellow)",
+          green: "var(--spectrum-green)",
+          teal: "var(--spectrum-teal)",
+          blue: "var(--spectrum-blue)",
+          indigo: "var(--spectrum-indigo)",
+          purple: "var(--spectrum-purple)",
+          pink: "var(--spectrum-pink)",
+        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -63,8 +86,9 @@ const config: Config = {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "1rem",
+        sm: "0.75rem",
+        pill: "999px",
       },
       animation: {
         marquee: "marquee var(--duration) linear infinite",

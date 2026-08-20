@@ -1,138 +1,102 @@
 "use client";
-import { useRef } from "react";
-import {
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  CardFooter,
-} from "@/components/ui/card";
-import { motion } from "framer-motion";
-import { NumberTicker, NumberTickerProps } from "@/components/ui/number-ticker";
-import { MagicCard } from "@/components/ui/magic-card";
-import { SITE_CONFIG } from "@/lib/site-config";
-import { Button } from "@/components/ui/button";
+
+import { Reveal, RevealStagger, revealItem } from "@/components/motion/reveal";
+import { NumberTicker } from "@/components/ui/number-ticker";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
 import { useScopedI18n } from "@/locales/client";
-import { useAppTheme } from "../theme/useAppTheme";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-interface StatItemProps {
-  label: string;
-  value: number;
-  numberConfig?: Partial<NumberTickerProps>;
-  prefix?: string;
-  suffix?: string;
-  ctaText: string;
-  ctaLink: string;
-  isExternal?: boolean;
-}
-
-function StatItem({
+function StatBlock({
+  index,
   label,
   value,
-  numberConfig,
-  prefix,
   suffix,
   ctaText,
   ctaLink,
-  isExternal,
-}: StatItemProps) {
-  const { color } = useAppTheme();
+  accent,
+}: {
+  index: string;
+  label: string;
+  value: number;
+  suffix?: string;
+  ctaText: string;
+  ctaLink: string;
+  accent: string;
+}) {
   return (
-    <MagicCard
-      className="relative flex flex-col h-full"
-      gradientColor={SITE_CONFIG.brand.primary(color ?? "red") + "20"}
-    >
-      <CardHeader className="flex-grow">
-        <CardTitle className="text-3xl font-bold">
-          {prefix && <span>{prefix}</span>}
-          {!value ? 0 : <NumberTicker value={value} {...numberConfig} />}
-          {suffix && <span>{suffix}</span>}
-        </CardTitle>
-        <CardDescription className="mt-2">{label}</CardDescription>
-      </CardHeader>
-      <CardFooter>
-        {isExternal ? (
-          <Link
-            href={ctaLink ?? ""}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full"
-            passHref
-          >
-            <Button variant="link" className="">
-              {">"} {ctaText} <ExternalLink className="ml-2 h-3 w-3" />
-            </Button>
-          </Link>
-        ) : (
-          <Link href={ctaLink} passHref>
-            <Button variant="link">
-              {">"} {ctaText}
-            </Button>
-          </Link>
-        )}
-      </CardFooter>
-    </MagicCard>
+    <motion.div variants={revealItem}>
+      <Link
+        href={ctaLink}
+        className="group block h-full border border-foreground/10 bg-background p-6 transition-colors duration-300 hover:bg-foreground hover:text-background"
+      >
+        <div className="flex items-start justify-between gap-3">
+          <span className="inline-flex items-center gap-2 font-mono text-xs">
+            <span
+              className="size-1.5 rounded-full"
+              style={{ backgroundColor: accent }}
+            />
+            {index}
+          </span>
+          <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors group-hover:text-background/70">
+            {ctaText}
+            <ArrowRight className="size-3" />
+          </span>
+        </div>
+        <p className="mt-8 font-display text-5xl font-black tracking-tight sm:text-6xl">
+          <NumberTicker value={value} />
+          {suffix}
+        </p>
+        <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-background/70">
+          {label}
+        </p>
+      </Link>
+    </motion.div>
   );
 }
 
 export function StatsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const t = useScopedI18n("stats-section");
 
   return (
-    <motion.div
-      className="w-full pb-4"
-      ref={containerRef}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <motion.div
-        initial={{ x: -10, y: 10 }}
-        animate={{ x: 0, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
-        <h1 className="font-bold text-xl mb-2 mt-4">{t("title")}</h1>
-      </motion.div>
+    <section className="border-y border-foreground/10 bg-muted/40 py-16">
+      <div className="omc-container">
+        <Reveal>
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            03 / {t("title")}
+          </p>
+        </Reveal>
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-      >
-        <StatItem
-          label={t("items.0.label")}
-          value={Number(t("items.0.value"))}
-          suffix={t("items.0.suffix")}
-          ctaText={t("items.0.ctaText")}
-          ctaLink={t("items.0.ctaLink")}
-        />
-        <StatItem
-          label={t("items.1.label")}
-          value={Number(t("items.1.value"))}
-          suffix={t("items.1.suffix")}
-          ctaText={t("items.1.ctaText")}
-          ctaLink={t("items.1.ctaLink")}
-        />
-        <StatItem
-          label={t("items.2.label")}
-          prefix=""
-          value={Number(t("items.2.value"))}
-          ctaText={t("items.2.ctaText")}
-          ctaLink={t("items.2.ctaLink")}
-        />
-        <StatItem
-          label={t("items.3.label")}
-          value={1}
-          suffix="/1"
-          numberConfig={{}}
-          ctaText={t("items.3.ctaText")}
-          ctaLink={t("items.3.ctaLink")}
-          isExternal={true}
-        />
-      </motion.div>
-    </motion.div>
+        <RevealStagger className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          <StatBlock
+            index="A"
+            label={t("items.0.label")}
+            value={Number(t("items.0.value"))}
+            suffix={t("items.0.suffix")}
+            ctaText={t("items.0.ctaText")}
+            ctaLink={t("items.0.ctaLink")}
+            accent="var(--spectrum-yellow)"
+          />
+          <StatBlock
+            index="B"
+            label={t("items.1.label")}
+            value={Number(t("items.1.value"))}
+            suffix={t("items.1.suffix")}
+            ctaText={t("items.1.ctaText")}
+            ctaLink={t("items.1.ctaLink")}
+            accent="var(--spectrum-blue)"
+          />
+          <StatBlock
+            index="C"
+            label={t("items.2.label")}
+            value={Number(t("items.2.value"))}
+            suffix={t("items.2.suffix")}
+            ctaText={t("items.2.ctaText")}
+            ctaLink={t("items.2.ctaLink")}
+            accent="var(--spectrum-teal)"
+          />
+        </RevealStagger>
+      </div>
+    </section>
   );
 }

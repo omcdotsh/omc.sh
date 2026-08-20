@@ -19,16 +19,16 @@ export const THEME_COLORS = [
 export type ThemeMode = (typeof THEME_MODES)[number];
 export type ThemeColor = (typeof THEME_COLORS)[number];
 
-export const DEFAULT_THEME_COLOR: ThemeColor = "red";
-export const DEFAULT_THEME_MODE: ThemeMode = "dark";
+export const DEFAULT_THEME_COLOR: ThemeColor = "black";
+export const DEFAULT_THEME_MODE: ThemeMode = "light";
 
 export const THEME_COLOR_MAP: Record<ThemeColor, string> = {
   red: "rgb(217, 45, 98)",
-  orange: "rgb(255, 119, 0)",
+  orange: "rgb(255, 59, 0)",
   yellow: "rgb(223, 185, 3)",
   green: "rgb(87, 137, 102)",
   cyan: "rgb(0, 188, 212)",
-  blue: "rgb(82, 150, 250)",
+  blue: "rgb(37, 99, 235)",
   indigo: "rgb(64, 78, 255)",
   violet: "rgb(128, 0, 255)",
   pink: "rgb(255, 38, 140)",
@@ -37,15 +37,15 @@ export const THEME_COLOR_MAP: Record<ThemeColor, string> = {
 };
 
 export const HEXA_COLOR_MAP: Record<ThemeColor, string> = {
-  red: "#FF0000",
-  orange: "#FF7F00",
-  yellow: "#FFFF00",
-  green: "#00FF00",
-  cyan: "#00FFFF",
-  blue: "#0000FF",
-  indigo: "#4B0082",
-  violet: "#8B00FF",
-  pink: "#FFC0CB",
+  red: "#D92D62",
+  orange: "#FF3B00",
+  yellow: "#DFB903",
+  green: "#578966",
+  cyan: "#00BCD4",
+  blue: "#2563EB",
+  indigo: "#404EFF",
+  violet: "#8000FF",
+  pink: "#FF268C",
   white: "#FFFFFF",
   black: "#000000",
 };
@@ -87,7 +87,7 @@ export const THEMES = [
   "dark-white",
 ];
 
-export const DEFAULT_THEME = "dark-green";
+export const DEFAULT_THEME = "light-black";
 
 export function useAppTheme() {
   const { theme, setTheme } = useTheme();

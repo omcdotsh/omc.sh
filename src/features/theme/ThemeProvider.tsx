@@ -1,24 +1,41 @@
 "use client";
 
-import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { ThemeProvider as NextThemeProvider, useTheme } from "next-themes";
 import { useEffect } from "react";
 import { DEFAULT_THEME, THEMES } from "./useAppTheme";
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+const DS_FLAG = "omc-ds";
+const DS_VERSION = "omc-brand-v1";
+
+function ThemeMigration() {
+  const { theme, setTheme } = useTheme();
+
   useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
+    if (typeof window === "undefined") return;
 
-    if (currentTheme && !THEMES.includes(currentTheme)) {
-      localStorage.setItem("theme", DEFAULT_THEME);
+    const alreadyMigrated = localStorage.getItem(DS_FLAG) === DS_VERSION;
+    if (alreadyMigrated) {
+      if (theme && !THEMES.includes(theme)) {
+        setTheme(DEFAULT_THEME);
+      }
+      return;
     }
-  }, []);
 
+    setTheme(DEFAULT_THEME);
+    localStorage.setItem(DS_FLAG, DS_VERSION);
+  }, [theme, setTheme]);
+
+  return null;
+}
+
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <NextThemeProvider
       attribute="class"
       defaultTheme={DEFAULT_THEME}
       themes={THEMES}
     >
+      <ThemeMigration />
       {children}
     </NextThemeProvider>
   );

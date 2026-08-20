@@ -2,7 +2,7 @@
 
 import { SITE_CONFIG } from "@/lib/site-config";
 import { ThemeToggle } from "../theme/ThemeToggle";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { LocaleToggle } from "../locale/LocaleToggle";
 import { usePathname } from "next/navigation";
 import { useCurrentLocale } from "@/locales/client";
@@ -13,61 +13,36 @@ export const Header = () => {
   const locale = useCurrentLocale();
   const pathnameWithLocale = usePathname();
   const isHome = pathnameWithLocale === `/${locale}`;
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.header
-      className="sticky top-0 z-10 flex h-[53px] w-full items-center justify-between px-4 bg-background/70 backdrop-blur-sm"
-      initial={{ opacity: 0, y: -20 }}
+      className="sticky top-0 z-10 flex h-14 w-full items-center justify-between border-b border-border/80 bg-background/80 px-4 backdrop-blur-md"
+      initial={reduceMotion ? false : { opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
     >
-      <div className="flex items-center w-full">
-        <motion.div
-          className="flex items-center"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <Link href={`/${locale}`} passHref>
-            <span
-              className={cn(
-                "text-lg text-foreground hover:text-primary font-bold",
-                isHome && "text-primary",
-                "transition-all duration-300"
-              )}
-            >
-              {SITE_CONFIG.name}
-            </span>
-          </Link>
-        </motion.div>
+      <div className="flex w-full items-center">
+        <Link href={`/${locale}`} className="cursor-pointer">
+          <span
+            className={cn(
+              "font-mono text-sm font-bold tracking-tight text-foreground transition-colors duration-200 hover:text-primary",
+              isHome && "text-primary"
+            )}
+          >
+            {SITE_CONFIG.name}
+          </span>
+        </Link>
 
-        <motion.div
-          className="h-[1px] bg-primary flex-grow mx-4"
-          style={{ flexBasis: "200%" }}
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
-        />
+        <div className="mx-4 h-px flex-grow bg-border" />
 
         <div className="min-w-fit">
           <LocaleToggle />
         </div>
 
-        <motion.div
-          className="h-[1px] bg-primary flex-grow mx-4"
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
-        />
+        <div className="mx-4 h-px flex-grow bg-border" />
 
-        <motion.div
-          className="flex items-center"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-        >
-          <ThemeToggle />
-        </motion.div>
+        <ThemeToggle />
       </div>
     </motion.header>
   );

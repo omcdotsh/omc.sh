@@ -3,11 +3,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useQueryState } from "nuqs";
 import { XpTimelineCard } from "./XpTimelineCard";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useScopedI18n } from "@/locales/client";
 import { useXp } from "./useXp";
 import { AnimatedBadgeList } from "@/components/ui/animated-badge-list";
 import { useMemo } from "react";
+import { PageHero } from "@/components/layout/page-hero";
+import { cn } from "@/lib/utils";
 
 type XpTab = "professional" | "personal" | "academic";
 
@@ -22,6 +24,7 @@ const parseTab = (value: string): XpTab => {
 
 export const XPContent = () => {
   const t = useScopedI18n("xp-section");
+  const page = useScopedI18n("xp-page");
   const { xpPro, xpPerso, xpAcademic, achievements, aboutItems } = useXp();
 
   const [tab, setTab] = useQueryState<XpTab>("tab", {
@@ -37,57 +40,60 @@ export const XPContent = () => {
     return aboutItems.map((item) => item.title);
   }, [aboutItems]);
 
+  const tabs: { value: XpTab; label: string }[] = [
+    { value: "professional", label: t("tabs.0") },
+    { value: "personal", label: t("tabs.1") },
+    { value: "academic", label: t("tabs.2") },
+  ];
+
   return (
-    <motion.div
-      className="w-full flex flex-col gap-2"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="omc-container w-full">
+      <PageHero
+        index="XP"
+        kicker={page("kicker")}
+        title={page("title")}
+        description={page("description")}
+      />
+
       <Tabs
         value={tab ?? DEFAULT_TAB}
         onValueChange={(value) => setTab(value as XpTab)}
-        className="w-[100%]"
+        className="mt-10 w-full"
       >
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="professional">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+        <TabsList className="mb-8 grid h-auto w-full grid-cols-3 gap-1 rounded-pill border border-foreground/10 bg-transparent p-1">
+          {tabs.map((item) => (
+            <TabsTrigger
+              key={item.value}
+              value={item.value}
+              className={cn(
+                "rounded-pill py-3 font-mono text-xs uppercase tracking-[0.16em]",
+                "data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              )}
             >
-              {t("tabs.0")}
-            </motion.span>
-          </TabsTrigger>
-          <TabsTrigger value="personal">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {t("tabs.1")}
-            </motion.span>
-          </TabsTrigger>
-          <TabsTrigger value="academic">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {t("tabs.2")}
-            </motion.span>
-          </TabsTrigger>
+              {item.label}
+            </TabsTrigger>
+          ))}
         </TabsList>
+
         <AnimatePresence mode="wait">
-          <motion.div key={tab}>
-            <TabsContent value="professional">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+          >
+            <TabsContent value="professional" className="mt-0">
               <XpTimelineCard experiences={xpPro} />
             </TabsContent>
-            <TabsContent value="personal">
-              <div>
+            <TabsContent value="personal" className="mt-0">
+              <div className="space-y-6">
                 <AnimatedBadgeList items={aboutItemsTitles} />
                 <XpTimelineCard experiences={xpPerso} />
               </div>
             </TabsContent>
-            <TabsContent value="academic">
-              <div>
+            <TabsContent value="academic" className="mt-0">
+              <div className="space-y-6">
                 <AnimatedBadgeList items={achievementTitles} />
                 <XpTimelineCard experiences={xpAcademic} />
               </div>
@@ -95,6 +101,6 @@ export const XPContent = () => {
           </motion.div>
         </AnimatePresence>
       </Tabs>
-    </motion.div>
+    </div>
   );
 };

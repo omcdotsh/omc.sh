@@ -1,43 +1,49 @@
 import { routes } from "@/lib/routes";
 
 export default {
+  nav: {
+    index: "index",
+    work: "work",
+    xp: "expérience",
+    notes: "notes",
+    book: "lancer un projet",
+  },
   "hero-section": {
-    title: "bonjour ami",
-    description: "moi, un ingénieur {span} qui adore créer des trucs cool",
-    descriptionSpan: ["fullstack", "web3", "blockchain", "frontend", "backend"],
+    eyebrow: "un nom · tous les mediums · possibilités infinies",
+    role: "Produits crypto de bout en bout — du protocole à l'interface, jusqu'au ship.",
     subtext:
-      "je construis la prochaine génération d'applications web3. des smart contracts aux interfaces utilisateurs, je concrétise vos idées innovantes",
-    cta: "> contactez-moi",
+      "Des builds menés par le design, avec une vraie profondeur eng. Produit, systèmes et delivery comme un seul ownership.",
+    cta: "lancer un projet",
+    secondaryCta: "expérience",
+    tagDesign: "design",
+    tagDev: "développement",
+    tagStrategy: "stratégie",
+    frameCaption: "o · m · c · — fenêtres · masques · crops · focus",
+    available: "disponible",
   },
   "stats-section": {
-    title: "quelques chiffres",
+    title: "résultats",
     items: [
       {
-        label: "années d'expérience à livrer des solutions innovantes",
+        label: "années à livrer des systèmes en production, web3 et produit",
         value: "5",
         suffix: "+",
-        ctaText: "voir mon parcours",
+        ctaText: "parcours",
         ctaLink: `${routes.xp}?tab=professional`,
       },
       {
-        label: "clients satisfaits partout dans le monde",
-        value: "20",
+        label: "TVL pic sur un protocole DeFi mené de bout en bout",
+        value: "230",
+        suffix: "M",
+        ctaText: "expérience",
+        ctaLink: `${routes.xp}?tab=professional`,
+      },
+      {
+        label: "protocoles et produits livrés sous de vraies contraintes",
+        value: "4",
         suffix: "+",
-        ctaText: "quelques exemples",
+        ctaText: "work",
         ctaLink: routes.portfolio,
-      },
-      {
-        label: "abandons universitaires, parce qu'honnêtement c'est ennuyeux",
-        value: "2",
-        ctaText: "voir ça",
-        ctaLink: `${routes.xp}?tab=academic`,
-      },
-      {
-        label: "victoire à un hackathon blockchain dans la poche",
-        value: "1",
-        suffix: "/1",
-        ctaText: "voir la preuve",
-        ctaLink: "https://devpost.com/software/blockswanfamily",
       },
     ],
   },
@@ -451,37 +457,73 @@ export default {
   },
   "portfolio-section": {
     tabs: ["développeur", "designer"],
+    kicker: "travaux sélectionnés",
+    title: "Chaque projet, son propre monde.",
+    description:
+      "Interfaces et systèmes construits sous de vraies contraintes — capital, utilisateurs, temps.",
+  },
+  "xp-page": {
+    kicker: "expérience",
+    title: "Oscar — le parcours.",
+    description:
+      "Lead engineer et product builder. Morpho, Neutrl, et les systèmes entre les deux.",
+  },
+  "blog-page": {
+    kicker: "notes",
+    title: "Penser en public.",
+    description: "Écrits sur les systèmes, le produit, et builder à découvert.",
   },
   footer: {
-    calendar: "contactez-moi >",
-    linkedin: "stalkez mon linkedin",
-    x: "retweetez-moi sur X",
-    github: "forkez mon github",
-    behance: "admirez mon behance",
-    email: "envoyez-moi un mail",
+    title: "Construisons quelque chose qui compte",
+    subtext:
+      "Brief projet ou conversation recrutement — même porte, prochain pas clair.",
+    calendar: "lancer un projet",
+    hire: "voir l'expérience",
+    tagline: "identité stable · expression fluide",
+    linkedin: "linkedin",
+    x: "x",
+    github: "github",
+    behance: "behance",
+    email: "email",
   },
   "cta-section": {
-    title: "révolutionnez vos projets web3",
+    eyebrow: "comment ça ship",
+    title: "Du sens, sans bruit.",
+    subtext:
+      "Prendre le chemin difficile du design à la production — contrats, data, APIs, et l'UI à laquelle on confie de l'argent.",
+    cta: "lancer un projet",
+    secondaryCta: "voir l'expérience",
     "1": {
-      title: "intégration blockchain",
+      title: "Ownership de bout en bout",
       description:
-        "connectez facilement vos dapps avec de multiples réseaux blockchain.",
+        "De l'architecture au ship. Solidity, indexeurs, GraphQL, SDKs et UI produit comme un seul système.",
     },
     "2": {
-      title: "développement de smart contracts",
+      title: "Fiabilité sous capital",
       description:
-        "créez des smart contracts sécurisés et efficaces pour vos applications décentralisées.",
+        "Simulations, migrations et chemins d'exécution pensés pour du vrai TVL — pas des démos.",
     },
     "3": {
-      title: "solutions defi",
+      title: "Des interfaces qui expliquent l'argent",
       description:
-        "construisez des applications de finance décentralisée robustes avec des technologies de pointe.",
+        "Des primitives financières complexes traduites en expériences produit claires et rapides.",
     },
   },
   "work-with-section": {
-    title: "j'ai travaillé avec",
-    subtext:
-      "des startups aux protocoles établis, j'ai aidé à concrétiser leur vision",
+    title: "équipes sélectionnées",
+    headline: "Là où le travail devait être exact.",
+    subtext: "Protocoles et produits livrés sous de vraies contraintes.",
+    seeWork: "voir tout le work",
+    caps: [
+      "design",
+      "développement",
+      "stratégie",
+      "motion",
+      "solidity",
+      "produit",
+      "indexeurs",
+      "brand",
+    ],
   },
   "blog-section": {
     categories: {

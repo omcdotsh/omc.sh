@@ -22,26 +22,21 @@ export const Footer = () => {
   const pathname = usePathname();
   return (
     <motion.footer
-      className="w-full bg-background/70 backdrop-blur-sm py-4"
-      initial={{ opacity: 0, y: 20 }}
+      className="mt-8 w-full border-t border-border/80 bg-background/70 py-5 backdrop-blur-sm"
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.35 }}
     >
-      <div className="w-full mx-auto flex justify-between items-center">
+      <div className="mx-auto flex w-full items-center justify-between gap-3">
         <motion.div
           className="flex items-center gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.1, duration: 0.35 }}
         >
-          <motion.div
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Avatar className="w-4 h-4 md:w-8 md:h-8">
-              <AvatarImage src="/icon.png" alt={SITE_CONFIG.name} />
-            </Avatar>
-          </motion.div>
+          <Avatar className="h-6 w-6 md:h-8 md:w-8">
+            <AvatarImage src="/icon.png" alt={SITE_CONFIG.name} />
+          </Avatar>
           <div className="flex flex-col">
             <nav className="flex flex-wrap gap-1 text-xs">
               <AnimatePresence>
@@ -83,16 +78,14 @@ export const Footer = () => {
           </div>
         </motion.div>
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+          transition={{ delay: 0.15, duration: 0.35 }}
         >
           <Button
             variant="outline"
             size="sm"
-            className="hover:scale-102 active:scale-95 transition-transform border-primary"
+            className="border-border font-mono transition-colors hover:border-primary"
             asChild
           >
             <Link

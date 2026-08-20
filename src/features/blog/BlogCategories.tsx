@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export interface BlogCategoriesProps {
   categories: string[];
@@ -18,14 +18,19 @@ export const BlogCategories = ({
       {categories.map((category) => {
         const isSelected = selectedCategory === category;
         return (
-          <Badge
+          <button
             key={category}
-            variant={isSelected ? "default" : "outline"}
+            type="button"
             onClick={() => onSelectCategory?.(category)}
-            className="cursor-pointer"
+            className={cn(
+              "cursor-pointer rounded-pill border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-200",
+              isSelected
+                ? "border-foreground bg-foreground text-background"
+                : "border-foreground/15 text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+            )}
           >
             {category}
-          </Badge>
+          </button>
         );
       })}
     </div>

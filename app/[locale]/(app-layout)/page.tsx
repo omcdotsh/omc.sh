@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RoutePage() {
   return (
-    <div className="w-full flex flex-col gap-2">
+    <div className="flex w-full flex-col">
       <HeroSection />
       <WorkWithSection />
       <StatsSection />

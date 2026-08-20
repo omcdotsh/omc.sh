@@ -1,43 +1,49 @@
 import { routes } from "@/lib/routes";
 
 export default {
+  nav: {
+    index: "index",
+    work: "work",
+    xp: "experience",
+    notes: "notes",
+    book: "start a project",
+  },
   "hero-section": {
-    title: "gm friend",
-    description: "me, a {span} engineer who loves building cool stuff",
-    descriptionSpan: ["fullstack", "web3", "blockchain", "frontend", "backend"],
+    eyebrow: "one name · any medium · endless possibilities",
+    role: "End-to-end crypto products — from protocol to interface to ship.",
     subtext:
-      "building the next generation of web3 applications. from smart contracts to user interfaces, i bring your innovative ideas to life",
-    cta: "> get in touch",
+      "Design-led builds with engineering depth. Product, systems, and delivery owned as one.",
+    cta: "start a project",
+    secondaryCta: "experience",
+    tagDesign: "design",
+    tagDev: "development",
+    tagStrategy: "strategy",
+    frameCaption: "o · m · c · — windows · masks · crops · focus",
+    available: "available",
   },
   "stats-section": {
-    title: "some numbers",
+    title: "outcomes",
     items: [
       {
-        label: "years of experience shipping innovative solutions",
+        label: "years shipping production systems across web3 and product",
         value: "5",
         suffix: "+",
-        ctaText: "see my journey",
+        ctaText: "journey",
         ctaLink: `${routes.xp}?tab=professional`,
       },
       {
-        label: "satisfied clients worldwide, from startups to big players",
-        value: "20",
+        label: "peak TVL on a DeFi protocol led end-to-end",
+        value: "230",
+        suffix: "M",
+        ctaText: "experience",
+        ctaLink: `${routes.xp}?tab=professional`,
+      },
+      {
+        label: "protocols and products shipped under real constraints",
+        value: "4",
         suffix: "+",
-        ctaText: "some examples",
+        ctaText: "work",
         ctaLink: routes.portfolio,
-      },
-      {
-        label: "university dropouts, because honestly it's boring",
-        value: "2",
-        ctaText: "see that",
-        ctaLink: `${routes.xp}?tab=academic`,
-      },
-      {
-        label: "blockchain hackathon victory in the pocket",
-        value: "1",
-        suffix: "/1",
-        ctaText: "see proof",
-        ctaLink: "https://devpost.com/software/blockswanfamily",
       },
     ],
   },
@@ -451,37 +457,73 @@ export default {
   },
   "portfolio-section": {
     tabs: ["as developer", "as designer"],
+    kicker: "selected work",
+    title: "Every project, its own world.",
+    description:
+      "Interfaces and systems built under real constraints — capital, users, and time.",
+  },
+  "xp-page": {
+    kicker: "experience",
+    title: "Oscar — the path.",
+    description:
+      "Lead engineer and product builder. Morpho, Neutrl, and the systems in between.",
+  },
+  "blog-page": {
+    kicker: "notes",
+    title: "Thinking in public.",
+    description: "Writing on systems, product, and building in the open.",
   },
   footer: {
-    calendar: "> book a call",
-    linkedin: "boss me on linkedin",
-    x: "retweet me on x",
-    github: "fork me on github",
-    behance: "admire me on behance",
-    email: "email me",
+    title: "Let's build something that matters",
+    subtext:
+      "Project brief or hiring conversation — same door, clear next step.",
+    calendar: "start a project",
+    hire: "view experience",
+    tagline: "stable identity · fluid expression",
+    linkedin: "linkedin",
+    x: "x",
+    github: "github",
+    behance: "behance",
+    email: "email",
   },
   "cta-section": {
-    title: "revolutionize your web3 projects",
+    eyebrow: "how it ships",
+    title: "Purpose, without noise.",
+    subtext:
+      "Own the hard path from design to production — contracts, data, APIs, and the UI people trust with money.",
+    cta: "start a project",
+    secondaryCta: "view experience",
     "1": {
-      title: "blockchain integration",
+      title: "End-to-end ownership",
       description:
-        "seamlessly connect your dapps with multiple blockchain networks.",
+        "Architecture through shipping. Solidity, indexers, GraphQL, SDKs, and product UI as one system.",
     },
     "2": {
-      title: "smart contract development",
+      title: "Reliability under capital",
       description:
-        "create secure and efficient smart contracts for your decentralized applications.",
+        "Simulations, migrations, and execution paths built for real TVL — not demos.",
     },
     "3": {
-      title: "defi solutions",
+      title: "Interfaces that explain the money",
       description:
-        "build robust decentralized finance applications with cutting-edge technologies.",
+        "Complex financial primitives translated into clear, fast product experiences.",
     },
   },
   "work-with-section": {
-    title: "i've worked with",
-    subtext:
-      "from startups to established protocols, i've helped bring their vision to life",
+    title: "selected teams",
+    headline: "Where the work had to be correct.",
+    subtext: "Protocols and products shipped under real constraints.",
+    seeWork: "see all work",
+    caps: [
+      "design",
+      "development",
+      "strategy",
+      "motion",
+      "solidity",
+      "product",
+      "indexers",
+      "brand",
+    ],
   },
   "blog-section": {
     categories: {

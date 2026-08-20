@@ -1,109 +1,144 @@
 "use client";
 
-import { useRef } from "react";
-import { motion } from "framer-motion";
-import { MagicCard } from "@/components/ui/magic-card";
+import { Reveal } from "@/components/motion/reveal";
+import { SpectrumTag, type SpectrumHue } from "@/components/brand/spectrum-tag";
 import Image from "next/image";
 import { useScopedI18n } from "@/locales/client";
-import { SITE_CONFIG } from "@/lib/site-config";
 import { useAppTheme } from "../theme/useAppTheme";
+import Link from "next/link";
+import { routes } from "@/lib/routes";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-interface CompanyLogo {
-  name: string;
-  logo: string;
-  alt: string;
-  link?: string;
-}
-
-const companies: CompanyLogo[] = [
+const companies = [
   {
     name: "neutrl",
     logo: "/images/partners/neutrl.svg",
     alt: "Neutrl Protocol",
+    hue: "blue" as SpectrumHue,
   },
   {
     name: "morpho labs",
     logo: "/images/partners/morpho.svg",
     alt: "Morpho Labs",
+    hue: "teal" as SpectrumHue,
   },
   {
     name: "fyde labs",
     logo: "/images/partners/fyde.svg",
     alt: "Fyde Labs",
+    hue: "indigo" as SpectrumHue,
   },
   {
     name: "ultra",
     logo: "/images/partners/ultra.svg",
     alt: "Ultra",
+    hue: "pink" as SpectrumHue,
   },
 ];
 
-function CompanyLogo({ company }: { company: CompanyLogo }) {
+const CAPABILITY_HUES: SpectrumHue[] = [
+  "yellow",
+  "red",
+  "blue",
+  "teal",
+  "purple",
+  "orange",
+  "green",
+  "pink",
+];
+
+export function WorkWithSection() {
+  const t = useScopedI18n("work-with-section");
   const { mode } = useAppTheme();
   const isDark = mode === "dark";
 
-  return (
-    <motion.div
-      className="flex items-center justify-center px-3 py-2 mx-1 transition-all duration-200"
-      whileHover={{ scale: 1.05 }}
-    >
-      <div className="relative w-24 h-15 max-h-10 flex items-center justify-center">
-        <Image
-          src={company.logo}
-          alt={company.alt}
-          width={84}
-          height={20}
-          className="object-contain max-w-full max-h-full transition-all duration-200 invert-0 dark:invert"
-          style={{
-            filter: isDark ? "invert(1)" : "invert(0)",
-          }}
-        />
-      </div>
-    </motion.div>
-  );
-}
-
-export function WorkWithSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const t = useScopedI18n("work-with-section");
-  const { color } = useAppTheme();
+  const capabilities = [
+    t("caps.0"),
+    t("caps.1"),
+    t("caps.2"),
+    t("caps.3"),
+    t("caps.4"),
+    t("caps.5"),
+    t("caps.6"),
+    t("caps.7"),
+  ];
 
   return (
-    <motion.div
-      className="w-full pb-4 overflow-x-hidden"
-      ref={containerRef}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <motion.div
-        initial={{ x: -10, y: 10 }}
-        animate={{ x: 0, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-      >
-        <h1 className="font-bold text-xl mb-2 mt-4">{t("title")}</h1>
-      </motion.div>
+    <section className="py-16">
+      <div className="omc-container">
+        <Reveal>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                02 / {t("title")}
+              </p>
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                {t("headline")}
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground">{t("subtext")}</p>
+          </div>
+        </Reveal>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-      >
-        <MagicCard
-          className="p-4"
-          gradientColor={SITE_CONFIG.brand.primary(color ?? "red") + "20"}
-        >
-          <div className="relative flex flex-wrap items-center justify-center">
-            {companies.map((company, index) => (
-              <CompanyLogo key={`${company.name}-${index}`} company={company} />
+        <Reveal delay={0.06}>
+          <div className="mb-10 flex flex-wrap gap-2">
+            {capabilities.map((label, i) => (
+              <SpectrumTag
+                key={label}
+                label={label}
+                hue={CAPABILITY_HUES[i % CAPABILITY_HUES.length]}
+              />
             ))}
           </div>
+        </Reveal>
 
-          <div className="text-center pt-3">
-            <p className="text-xs text-muted-foreground">{t("subtext")}</p>
+        <Reveal delay={0.1}>
+          <div className="grid grid-cols-2 border border-foreground/10 md:grid-cols-4">
+            {companies.map((company, i) => (
+              <div
+                key={company.name}
+                className={`group relative flex h-32 items-center justify-center px-6 transition-colors duration-300 hover:bg-foreground hover:text-background ${
+                  i % 2 === 1 ? "border-l border-foreground/10" : ""
+                } ${i > 1 ? "border-t border-foreground/10 md:border-t-0" : ""} ${
+                  i > 0 ? "md:border-l md:border-foreground/10" : ""
+                }`}
+              >
+                <span
+                  className="absolute left-4 top-4 size-2 rounded-full opacity-80"
+                  style={{
+                    backgroundColor: `var(--spectrum-${company.hue})`,
+                  }}
+                />
+                <Image
+                  src={company.logo}
+                  alt={company.alt}
+                  width={110}
+                  height={28}
+                  className={cn(
+                    "max-h-8 w-auto object-contain transition-[filter] duration-300",
+                    isDark
+                      ? "invert group-hover:invert-0"
+                      : "group-hover:invert"
+                  )}
+                />
+              </div>
+            ))}
           </div>
-        </MagicCard>
-      </motion.div>
-    </motion.div>
+        </Reveal>
+
+        <Reveal delay={0.14}>
+          <div className="mt-8">
+            <Link
+              href={routes.portfolio}
+              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {t("seeWork")}
+              <ArrowRight className="size-3.5" />
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }
